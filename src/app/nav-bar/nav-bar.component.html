@@ -1,42 +1,102 @@
 <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <a class="navbar-brand" href="#">
-      <img src="https://getbootstrap.com/docs/4.3/assets/brand/bootstrap-solid.svg" width="30" height="30" class="d-inline-block align-top" alt="">
-      Bootstrap
-    </a>
-      <form class="form-inline  ">
-        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-  
-      </form>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-  
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <div class="mr-auto"></div>
-        <ul class="navbar-nav my-2 my-lg-0">
-  <li class="nav-item active">
-          <a class="nav-link" href="#">Programări <span class="sr-only">(current)</span></a>
+  <nav class="navbar navbar-default navbar-expand-lg navbar-light">
+    <div class="navbar-header">
+      <img class="img-align" src="https://w7.pngwing.com/pngs/105/305/png-transparent-barbershop-sign-light-pole-stripes.png" alt="picture" width="40px"
+      height="50px">
+      <a class="navbar-brand a-move-right" href="home" >Vanu<b>BarberShop</b></a>
+      <button type="button" data-target="#navbarCollapse" data-toggle="collapse" class="navbar-toggle">
+        <span class="navbar-toggler-icon"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+    <!-- Collection of nav links, forms, and other content for toggling -->
+    <div id="navbarCollapse" class="collapse navbar-collapse">
+      <ul class="nav navbar-nav">
+        <li><a href="#">Home</a></li>
+        <li><a href="#">About</a></li>
+        <li class="dropdown">
+          <a data-toggle="dropdown" class="dropdown-toggle" href="#">Services <b class="caret"></b></a>
+          <ul class="dropdown-menu">
+            <li><a href="#">Web Design</a></li>
+            <li><a href="#">Web Development</a></li>
+            <li><a href="#">Graphic Design</a></li>
+            <li><a href="#">Digital Marketing</a></li>
+          </ul>
         </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-display="static" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Profil
-          </a>
-            <div class="dropdown-menu dropdown-menu-lg-right" aria-labelledby="navbarDropdown">
-              <a class="dropdown-item" href="#">Action</a>
-              <a class="dropdown-item" href="#">Another action</a>
-            </div>
-  
-          </li>
-  
-        </ul>
-  
+        <li class="active"><a href="#">Pricing</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+      <form class="navbar-form form-inline">
+        <div class="input-group search-box">
+          <input type="text" id="search" class="form-control" placeholder="Search here...">
+          <span class="input-group-addon"><i class="material-icons">&#xE8B6;</i></span>
         </div>
-    </nav>
-  
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-  </body>
+      </form>
+      <ul class="nav navbar-nav navbar-right">
+        <li>
+          <a data-toggle="dropdown" class="dropdown-toggle" href="#">Login</a>
+          <ul class="dropdown-menu form-wrapper">
+            <li>
+              <form action="/examples/actions/confirmation.php" method="post">
+                <p class="hint-text">Sign in with your social media account</p>
+                <div class="form-group social-btn clearfix">
+                  <a href="#" class="btn btn-primary pull-left"><i class="fa fa-facebook"></i> Facebook</a>
+                  <a href="#" class="btn btn-info pull-right"><i class="fa fa-twitter"></i> Twitter</a>
+                </div>
+                <div class="or-seperator"><b>or</b></div>
+                <div class="form-group">
+                  <input type="text" class="form-control" placeholder="Username" required="required">
+                </div>
+                <div class="form-group">
+                  <input type="password" class="form-control" placeholder="Password" required="required">
+                </div>
+                <input type="submit" class="btn btn-primary btn-block" value="Login">
+                <div class="form-footer">
+                  <a href="#">Forgot Your password?</a>
+                </div>
+              </form>
+            </li>
+          </ul>
+        </li>
+        <li>
+          <a href="#" data-toggle="dropdown" class="btn btn-primary dropdown-toggle get-started-btn mt-1 mb-1">Sign
+            up</a>
+          <ul class="dropdown-menu form-wrapper">
+            <li>
+              <form  #form="ngForm" (ngSumbit)="onSubmit(form)">
+                <p class="hint-text">Fill in this form to create your account!</p>
+                <div class="form-group">
+                  <input type="text" class="form-control" [(ngModel)]="firstname" name="firstname"
+                    placeholder="Enter First Name" required="required">
+                </div>
+                <div class="form-group">
+                  <input type="text" class="form-control" [(ngModel)]="lastname" name="lastname"
+                    placeholder=" Enter Last Name" required="required">
+                </div>
+                <div class="form-group">
+                  <input type="text" class="form-control" [(ngModel)]="phoneNumber" name="phoneNumber"
+                    placeholder="Enter Phone Number" required="required">
+                </div>
+                <div class="form-group">
+                  <input type="email" class="form-control" [(ngModel)]="email" name="email" placeholder="Enter Email"
+                    required="required">
+                </div>
+                <div class="form-group">
+                  <input type="password" class="form-control" [(ngModel)]=" password" name="password"
+                    placeholder="Enter Password" required="required">
+                </div>
+                <div class="form-group">
+                  <label class="checkbox-inline"><input type="checkbox" required="required"> I accept the <a
+                      href="#">Terms &amp; Conditions</a></label>
+                </div>
+                <input type="submit" class="btn btn-primary btn-block" value="Sign up" (click)="onSubmit(form)">
+              </form>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </nav>
+</body>
