@@ -17,4 +17,8 @@ export class HairdresserService {
    createHairdresser(createHairdresserDTO: HairdresserCreateDTO): Observable<any>{
      return this.httpClient.post("api/hairdresser", createHairdresserDTO);
    }
+
+   getAll(): Observable<any> {
+     return this.httpClient.get("api/hairdresser")
+   }
 }

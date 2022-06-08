@@ -9,6 +9,9 @@ import { HttpClientModule } from '@angular/common/http';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { HomeComponent } from './home/home.component';
 import { AddHairdresserComponent } from './hairdresser/add-hairdresser/add-hairdresser.component';
+import { HairdresserItemComponent } from './hairdresser/hairdresser-item/hairdresser-item.component';
+import { HairdresserListComponent } from './hairdresser/hairdresser-list/hairdresser-list.component';
+import { AddAppointmentComponent } from './appointment/add-appointment/add-appointment.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +19,10 @@ import { AddHairdresserComponent } from './hairdresser/add-hairdresser/add-haird
     AddClientComponent,
     NavBarComponent,
     HomeComponent,
-    AddHairdresserComponent
+    AddHairdresserComponent,
+    HairdresserItemComponent,
+    HairdresserListComponent,
+    AddAppointmentComponent,
   ],
   imports: [
     BrowserModule,

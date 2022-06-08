@@ -7,7 +7,7 @@
 }
 
 .background-div {
-    background-color: cornflowerblue;
+    background-color: darkseagreen;
     height: 260px;
 }
 
@@ -17,12 +17,17 @@
 
 h3 {
     font-size: 15px;
-    font-family: merriweather-bold,sans-serif;
+    font-family: merriweather-bold, sans-serif;
 }
 
 h2 {
     font-size: 20px;
-    font-family: merriweather-bold,sans-serif;
+    font-family: merriweather-bold, sans-serif;
+}
+
+h1 {
+    font-size: 30px;
+    font-family: merriweather-bold, sans-serif;
 }
 
 .button {
@@ -35,7 +40,6 @@ h2 {
     background-color: #f6f8f8;
     border: none;
     border-radius: 15px;
-    box-shadow: 0 9px rgb(98, 149, 236);
 }
 
 .button:hover {
@@ -52,8 +56,19 @@ h2 {
     padding-left: 60px;
     padding-bottom: 40px;
 }
-.text-color-font{
+
+.text-color-font {
     color: blue;
     font-family: open-sans-semibold;
 }
 
+.background-div-programming {
+    background-color: indianred;
+}
+
+.img-move {
+    position:absolute;
+    top: 310px;
+    display: block;
+    margin-left: 900px;
+}
