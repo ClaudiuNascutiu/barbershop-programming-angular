@@ -14,13 +14,14 @@ export class HairdresserListComponent implements OnInit {
   constructor(private service: HairdresserService) { }
 
   ngOnInit(): void {
-
-    this.service.getAll().subscribe(
+    this.service.getAllHairdresser().subscribe(
       responseFromJavaApplication => {
         console.log(responseFromJavaApplication);
         this.hairdressers = responseFromJavaApplication;
       })
   }
+
+  
 
 }
 

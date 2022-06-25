@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { ClientService } from '/Users/claudiunascutiu/CursJava/Final Project/BarberShopProgrammingAngular/src/app/service/client.service';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { UserService } from '../service/user-service/user.service';
+import { UserLoginDTO } from '../user/UserDTO/UserLoginDTO';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-nav-bar',
   templateUrl: './nav-bar.component.html',
@@ -19,23 +20,47 @@ export class NavBarComponent implements OnInit {
 
   password = ""
 
-  constructor(private service: ClientService) { }
+  constructor(private service: UserService,
+    private router: Router) { }
 
   ngOnInit(): void {
   }
 
-  onSubmit(form:NgForm){
-    alert("Congratulations for subscribe")
-    const createClientDTO = {
+  onSubmit(form: NgForm) {
+    const createUserDTO = {
       "firstname": this.firstname,
       "lastname": this.lastname,
       "phoneNumber": this.phoneNumber,
       "email": this.email,
       "password": this.password
     };
-    this.service.createClient(createClientDTO).subscribe(response => {
+    this.service.createUser(createUserDTO).subscribe(response => {
       console.log(response);
     })
   }
 
+  onClick() {
+    this.service.login(new UserLoginDTO(this.email, this.password));
+    this.router.navigate(['']);
+  }
+
+  userLoggedIn() {
+      if(this.service.getUser() == null || this.service.getUser() == undefined){
+        return false;
+      }else{
+        return true;
+      }
+  }
+  logoutUser() {
+    this.service.logout();
+    this.router.navigate([""])
+  }
+
+  getUserName(){
+   return this.service.getUser()?.lastname;
+  }
+
+  getUserId() {
+    return this.service.getUser()?.id;
+  }
 }

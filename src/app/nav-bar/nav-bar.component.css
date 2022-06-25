@@ -17,6 +17,9 @@ body {
     padding-right: 16px;
     border-bottom: 1px solid #dfe3e8;
     border-radius: 0;
+    position: fixed;
+    top: 0;
+    width: 100%;
 }
 .nav img {
     border-radius: 50%;

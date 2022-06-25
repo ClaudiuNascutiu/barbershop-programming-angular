@@ -1,4 +1,4 @@
-export class ClientCreateDTO {
+export class UserCreateDTO {
     firstname: string;
     lastname: string;
     phoneNumber: string;

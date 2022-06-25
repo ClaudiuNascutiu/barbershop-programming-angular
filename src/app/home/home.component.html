@@ -1,10 +1,18 @@
+<div class="background">
+    <img class="img-background" src="https://authenticbarberco.com/wp-content/uploads/2015/01/classicbarbershop.jpg"
+        alt="sample">
+</div>
+
 <div class="background-div-programming">
-    <span><h1 class="edit-text text_color">
-        Programează-te online simplu și rapid
-    </h1></span>
+    <span>
+        <h1 class="edit-text-1 text_color-1">
+            Programează-te online simplu și rapid
+        </h1>
+    </span>
 
     <div class="div-button">
-        <button routerLink = "hairdressers" class="button"><span class="text-color-font">Alegeți unul dintre frizerii noștrii ></span></button>
+        <button [routerLink]="['/hairdressers', getRole()]" class="button"><span class="text-color-font">Alegeți unul
+                dintre frizerii noștrii ></span></button>
     </div>
 </div>
 
@@ -15,12 +23,10 @@
             Administrează-ți salonul, clienții și programările
             din cateva clickuri, făra bătăi de cap.
         </h3>
-        <span>
-            <img class ="img-move" src="https://i.pinimg.com/originals/72/fa/ea/72faea3e3465e98ed9734846f9cb7704.jpg" width="350px">
-        </span>
     </div>
     <div class="div-button">
-        <button routerLink ="register-hairdresser"
-            class="button"><span class="text-color-font">Listează-ți afacerea aici ></span></button>
+        <button routerLink="register-hairdresser" class="button"><span class="text-color-font">Listează-ți afacerea aici
+                ></span></button>
     </div>
+
 </div>

@@ -6,16 +6,20 @@
     </div>
 
     <div>
-        <h2>{{hairdresser.lastname}}</h2>
+        <h2 >{{hairdresser.lastname}}</h2>
+    </div>
+
+    <div >
+        <h4 class="border-tel">Telefon: {{hairdresser.phoneNumber}}</h4>
     </div>
 
     <diV>
-        <h3>Program</h3><br>
-        <p>Luni - Sâmbătă: 10:00 - 17:00</p>
-        <p>Duminică: Închis</p>
+        <h3 class="border">Program:<p><br><br>Luni - Sâmbătă: 10:00 - 17:00</p>
+            <p>Duminică: Închis</p></h3>
+        
     </diV>
     <div>
         <button href="#"
-        class="button"><span class="text-color-font">Programează-te ></span></button> 
+        class="button"><span class="text-color-font" [routerLink]="['/add-appointment', hairdresser.id]">Programează-te ></span></button> 
     </div>
 </div>

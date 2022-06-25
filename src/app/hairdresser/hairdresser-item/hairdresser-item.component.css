@@ -9,6 +9,7 @@
     padding: 20px;
     font-family: sans-serif;
     font-size: large;
+    margin-top: 15%;
 }
 
 .img-container {
@@ -44,4 +45,16 @@ p {
 .text-color-font {
     color: gray;
     font-family: open-sans-semibold;
+}
+
+.border-tel{
+    border-bottom: 2px double;
+    border-bottom-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+    padding: 0 20px;
+}
+.border{
+    border: double;
+    padding: 0 20px;
+    border-color: yellowgreen;
 }

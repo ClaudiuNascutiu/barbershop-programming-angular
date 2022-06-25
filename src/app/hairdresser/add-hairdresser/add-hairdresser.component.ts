@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AppointmentService } from 'src/app/service/appointment-service/appointment.service';
 import { HairdresserService } from 'src/app/service/hairdresser-service/hairdresser.service';
 
 
@@ -25,7 +26,6 @@ export class AddHairdresserComponent implements OnInit {
   }
 
   onClick(){
-    alert("Congratulations for subscribe")
     const createHairdresserDTO = {
       "firstname": this.firstname,
       "lastname": this.lastname,

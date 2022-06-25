@@ -1,4 +1,9 @@
+import {  Time } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+import { AppointmentService } from 'src/app/service/appointment-service/appointment.service';
+import { UserService } from 'src/app/service/user-service/user.service';
+
 
 @Component({
   selector: 'app-add-appointment',
@@ -7,9 +12,44 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AddAppointmentComponent implements OnInit {
 
-  constructor() { }
+  day = new Date()
+  startTime = {} as Time
+  hairdresserId = NaN
+  clientId = NaN
+
+  availableSlots: Time [] = [];
+
+  constructor(private service: AppointmentService, private clientService: UserService,
+    private router: ActivatedRoute, private routerLink: Router) {
+
+  }
 
   ngOnInit(): void {
+    this.router.params.subscribe(paramMap => {
+      this.hairdresserId = paramMap['id']
+      this.day = paramMap['day']
+    })
   }
+
+  onClickAddAppointment() {
+    const createAppointmentDTO = {
+      "day": this.day,
+      "startTime": this.startTime,
+      "hairdresserId": this.hairdresserId,
+      "clientId": this.clientService.getUser()?.id
+    };
+    this.service.createAppointment(createAppointmentDTO).subscribe(response =>
+      console.log(response));
+      alert("Multumim pentru programare")
+      this.routerLink.navigate([""])
+    }
+
+    clickForClose(){
+      this.routerLink.navigate(["/hairdressers"]);
+    }
+
+    getAvailableSlots() { 
+     
+    }
 
 }

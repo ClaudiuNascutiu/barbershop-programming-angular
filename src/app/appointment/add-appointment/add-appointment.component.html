@@ -1,1 +1,23 @@
-<p>add-appointment works!</p>
+<div class="container mt-5 move-div">
+    <div class="row">
+        <div class="col-md-6 offset-md-3 border p-4 shadow bg-light">
+            <div class="col-12">
+                <h3 class="fw-normal text-secondary fs-4 text-uppercase mb-4"></h3>
+            </div>
+            <form action="">
+                <div class="row g-3">
+                    <div class="col-md-6">
+                        <input type="date" class="form-control" [(ngModel)]="day" name="day" placeholder="Enter Date">
+                    </div>
+                    <div class="col-md-6">
+                        <input type="time" class="form-control" [(ngModel)]="startTime" name="startTime" placeholder="Enter Time">
+                    </div>
+                    <div class="col-12 mt-5 move-book-close-button">                        
+                        <button type="submit" class="btn btn-primary float-end" (click)="onClickAddAppointment()">Book Appointment</button>
+                        <button type="button" class="btn btn-outline-secondary float-end me-2 move-close-button " (click) = "clickForClose()">Cancel</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
