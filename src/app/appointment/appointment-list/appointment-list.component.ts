@@ -3,11 +3,13 @@ import { HttpParams } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
+import { Role } from 'src/app/enum/role';
 import { HairdresserCreateDTO } from 'src/app/hairdresser/hairdresserDTO/createHairdresserDTO';
 import { HairdresserDTO } from 'src/app/hairdresser/hairdresserDTO/hairdresserDTO';
 import { AppointmentService } from 'src/app/service/appointment-service/appointment.service';
 import { UserService } from 'src/app/service/user-service/user.service';
 import { AppointmentDTO } from '../appointmentDTO/appointmentDTO';
+import { AppointmentDTOForHairdresser } from '../appointmentDTO/appointmentDTOForHairdresser';
 
 @Component({
   selector: 'app-appointment-list',
@@ -17,7 +19,9 @@ import { AppointmentDTO } from '../appointmentDTO/appointmentDTO';
 export class AppointmentListComponent implements OnInit {
 
   clientId: number;
-  appointment: AppointmentDTO[] = []
+  appointment: AppointmentDTO[] = [];
+  appointmentForHairdresser: AppointmentDTOForHairdresser[] = [];
+  hairdresserId: number;
 
   constructor(private service: AppointmentService, private userService: UserService,
     private router: ActivatedRoute) {
@@ -27,11 +31,25 @@ export class AppointmentListComponent implements OnInit {
   ngOnInit(): void {
     this.router.params.subscribe(paramMap => {
       this.clientId = paramMap['id']
+      this.hairdresserId = paramMap['id']
     })
 
+    if(this.userService.getUser()?.role == "CLIENT"){
     this.service.getAllAppointmentsByClientId().subscribe(responseAppointment =>{
-      this.appointment = responseAppointment
-    })
+      this.appointment = responseAppointment;
+    })}
+    else if(this.userService.getUser()?.role == "HAIRDRESSER"){
+     this.service.getAllAppointmentsByHairdresserId().subscribe(responseForHairdresser => {
+      this.appointmentForHairdresser = responseForHairdresser;
+    })}
   }
+
+  clientOrHairdresser(){
+    if(this.userService.getUser()?.role == "HAIRDRESSER"){
+     return false
+   }else{
+     return true
+   }
+ }
 }
 

@@ -1,4 +1,4 @@
- .gradient-custom-3 {
+.gradient-custom-3 {
     /* fallback for old browsers */
     background: #84fab0;
     
@@ -35,7 +35,7 @@
     }
 
     .delete-bottom{
-        margin-left: 40%;
+        margin-left: 37%;
         background-color: red;
         margin-top: 20px;
     }
@@ -52,6 +52,7 @@
         border: double;
         text-align: center;
         background-color: aliceblue;
+        width: 60%;
         margin-left: 20%;
         margin-right: 20%;
     }
@@ -59,7 +60,9 @@
     .move-text{
         margin-left: 46%;
     }
-
+    .red-bottom{
+        background-color: red;
+    }
    
 
 

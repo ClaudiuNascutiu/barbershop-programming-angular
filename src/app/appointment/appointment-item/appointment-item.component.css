@@ -152,3 +152,8 @@ body {
 .tel{
     display: inline;
 }
+
+.bottom-delete{
+  background-color: red;
+  border-radius: 17px;
+}

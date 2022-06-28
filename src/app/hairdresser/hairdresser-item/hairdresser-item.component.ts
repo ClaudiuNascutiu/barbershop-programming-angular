@@ -16,8 +16,6 @@ export class HairdresserItemComponent implements OnInit {
     phoneNumber: "",
     email: ""
   }
-  @Input()
-  day: "2022-06-24"
 
   constructor() {
    }

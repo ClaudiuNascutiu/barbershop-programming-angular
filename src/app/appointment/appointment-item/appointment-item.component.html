@@ -1,26 +1,5 @@
-<!-- <div class="container">
-    <h1>Programare</h1>
-    <br>
-    <div class="row border-card">
-        <div class="col-sm-6 col-md-6 col-lg-4">
-            <div class="card bg-white p-3 mb-4 shadow">
-                <div class="d-flex justify-content-between mb-4">
-                    <div class="user-info">
-                        <div class="user-info__basic">
-                            <h5 class="mb-0">{{appointment.hairdresserName}}</h5>
-                        </div>
-                    </div>
-                </div>
-                <a href="#!"><small>Contact</small></a>
-                <h6 class="mb-0">{{appointment.hairdresserPhone}}</h6>
-                <div class="d-flex justify-content-between mt-4">
-                    <div>
-                        <h5 class="mb-0">{{appointment.startTime}}
-                            <small class="ml-1">{{appointment.day}}</small>
-                        </h5>
-                </div>
-</div> -->
-<div class="display-card">
+
+<div class="display-card" *ngIf = "clientOrHairdresser()">
   <figure class="snip0045 green border-card">
     <figcaption>
       <h2>{{appointment.hairdresserName}} <span>{{appointment.hairdresserLastName}}</span></h2>
@@ -30,6 +9,20 @@
       <p>Ora: {{appointment.startTime}}</p>
     </figcaption>
     <img src="https://cdn.w600.comps.canstockphoto.com/pop-art-barber-hipster-man-vector-clipart-vector_csp92988452.jpg" alt="sample6"/> 
-    <div class="position"></div>
+    <div class="position"><button class="bottom-delete">Sterge programarea</button></div>
   </figure>
 </div>
+
+<div class="display-card" *ngIf="!clientOrHairdresser()">
+    <figure class="snip0045 green border-card">
+      <figcaption>
+        <h2>{{appointmentForHairdresser.clientName}} <span>{{appointmentForHairdresser.clientLastName}}</span></h2>
+        <p class="tel">Tel: {{appointmentForHairdresser.clientPhone}}</p> 
+        <p>Email: {{appointmentForHairdresser.clientEmail}}</p>
+        <p class="tel">Data: {{appointmentForHairdresser.day}}</p>
+        <p>Ora: {{appointmentForHairdresser.startTime}}</p>
+      </figcaption>
+      <img src="https://cdn.w600.comps.canstockphoto.com/pop-art-barber-hipster-man-vector-clipart-vector_csp92988452.jpg" alt="sample6"/> 
+      <div class="position"><button class="bottom-delete" (click) = "deleteAppointment(appointment)">Sterge programarea</button></div>
+    </figure>
+  </div>

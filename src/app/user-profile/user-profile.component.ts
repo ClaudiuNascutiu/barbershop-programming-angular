@@ -1,7 +1,6 @@
 
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { throwIfEmpty } from 'rxjs';
 import { UserService } from 'src/app/service/user-service/user.service';
 import { AppointmentService } from '../service/appointment-service/appointment.service';
 
@@ -15,10 +14,10 @@ import { AppointmentService } from '../service/appointment-service/appointment.s
 export class UserProfileComponent implements OnInit {
 
 
-    firstname = "";
-    lastname = "";
-    phoneNumber = "";
-    email = "";
+  firstname = this.userService.getUser()?.firstname;
+  lastname = this.userService.getUser()?.lastname;
+  phoneNumber = this.userService.getUser()?.phoneNumber;
+  email = this.userService.getUser()?.email;
 
   constructor(private userService: UserService, private appointmentService: AppointmentService,
     private routerLink: Router) { }
@@ -32,7 +31,7 @@ export class UserProfileComponent implements OnInit {
       "firstname": this.firstname,
       "lastname": this.lastname,
       "phoneNumber": this.phoneNumber,
-      "email": this.userService.getUser()?.email,
+      "email": this.email,
       "password": this.userService.getUser()?.password,
       "role": this.userService.getUser()?.role
 
@@ -68,4 +67,5 @@ export class UserProfileComponent implements OnInit {
     this.routerLink.navigate([""])
   }
 
+  
 }

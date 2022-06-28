@@ -1,47 +1,49 @@
 <div class="user-profile ">
-<section class="vh-100 bg-image move-form"
-    style="background-image: url('https://mdbcdn.b-cdn.net/img/Photos/new-templates/search-box/img4.webp');">
-    <div class="mask d-flex align-items-center h-100 gradient-custom-3">
-        <div class="container h-100">
-            <div class="row d-flex justify-content-center align-items-center h-100">
-                <div class="col-12 col-md-9 col-lg-7 col-xl-6">
-                    <div class="card" style="border-radius: 15px;">
-                        <div class="card-body p-5">
-                            <h2 class="text-uppercase text-center mb-5">Detalii cont</h2>
+    <section class="vh-100 bg-image move-form"
+        style="background-image: url('https://mdbcdn.b-cdn.net/img/Photos/new-templates/search-box/img4.webp');">
+        <div class="mask d-flex align-items-center h-100 gradient-custom-3">
+            <div class="container h-100">
+                <div class="row d-flex justify-content-center align-items-center h-100">
+                    <div class="col-12 col-md-9 col-lg-7 col-xl-6">
+                        <div class="card" style="border-radius: 15px;">
+                            <div class="card-body p-5">
+                                <h2 class="text-uppercase text-center mb-5">Detalii cont</h2>
 
-                            <form class="move-form">
+                                <form class="move-form">
 
-                                <div class="form-outline mb-4">
-                                    <label class="form-label move-text" for="form3Example1cg">Nume</label>
-                                    <div contenteditable="true" class="border" [(ngModel)]="firstname" name="firstname" ngDefaultControl>
-                                        {{getFirstname()}}
-                                      </div>
-                                </div>
-                                <br>
+                                    <div class="form-outline mb-4">
+                                        <label class="form-label move-text" for="form3Example1cg">Nume</label>
+                                        <input type="text" id="form3Example1cg"
+                                            class="form-control form-control-lg border" [(ngModel)]="firstname"
+                                            name="firstname" />
+                                    </div>
+                                    <br>
 
-                                <div class="form-outline mb-4">
-                                    <label class="form-label move-text" for="form3Example1cg" >Prenume</label>
-                                    <div contenteditable="true" class="border" [(ngModel)]="lastname" name="lastname" ngDefaultControl>
-                                        {{getLastname()}}
-                                      </div>
-                                </div>
-                                <br>
+                                    <div class="form-outline mb-4">
+                                        <label class="form-label move-text" for="form3Example1cg">Prenume</label>
+                                        <input type="text" id="form3Example1cg"
+                                            class="form-control form-control-lg border" [(ngModel)]="lastname"
+                                            name="lastname" />
+                                    </div>
+                                    <br>
 
-                                <div class="form-outline mb-4">
-                                    <label class="form-label move-text" for="form3Example1cg">Telefon</label>
-                                    <div contenteditable="true" class="border" [(ngModel)]="phoneNumber" name="phoneNumber" ngDefaultControl>
-                                        {{getPhoneNumber()}}
-                                      </div>
-                                </div>
+                                    <div class="form-outline mb-4">
+                                        <label class="form-label move-text" for="form3Example1cg">Telefon</label>
+                                        <input type="text" id="form3Example1cg"
+                                            class="form-control form-control-lg border" [(ngModel)]="phoneNumber"
+                                            name="phoneNumber" />
+                                    </div>
+                                    <br>
+                                    <div class="form-outline mb-4">
+                                        <label class="form-label move-text" for="form3Example1cg">Email</label>
+                                        <input type="text" id="form3Example1cg"
+                                            class="form-control form-control-lg border" [(ngModel)]="email"
+                                            name="email" />
+                                    </div>
 
-                                <!-- <div class="form-outline mb-4">
-                                    <label class="form-label" for="form3Example3cg">Email</label>
-                                    <div contenteditable="true">
-                                        {{getEmail}}
-                                      </div>
-                                </div> -->
 
-                                <!-- <div class="form-check d-flex justify-content-center mb-5">
+
+                                    <!-- <div class="form-check d-flex justify-content-center mb-5">
                                     <input class="form-check-input me-2" type="checkbox" value=""
                                         id="form2Example3cg" />
                                     <label class="form-check-label" for="form2Example3g">
@@ -50,22 +52,51 @@
                                     </label>
                                 </div> -->
 
-                                <div class="d-flex justify-content-center">
-                                    <button type="button"
-                                        class="btn btn-success btn-block btn-lg gradient-custom-4 text-body move-save-bottom" (click) = "updateUser()">Save</button>
-                                </div>
-                                <div>
-                                    <button type="button" class="delete-bottom btn" (click) = "deleteUser()">Sterge-ti contul</button>
-                                </div>
-                                <br>
+                                    <div class="d-flex justify-content-center">
+                                        <button type="button"
+                                            class="btn btn-success btn-block btn-lg gradient-custom-4 text-body move-save-bottom"
+                                            (click)="updateUser()">Save</button>
+                                    </div>
+                                    <div>
+                                        <button type="button" class="btn btn-info btn-lg delete-bottom"
+                                            data-toggle="modal" data-target="#myModal">Sterge-ți contul</button>
 
-                            </form>
+                                        <!-- Modal -->
+                                        <div class="modal fade" id="myModal" role="dialog">
+                                            <div class="modal-dialog modal-sm">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <button type="button" class="close"
+                                                            data-dismiss="modal">&times;</button>
+                                                        <!-- <h4 class="modal-title">Modal Header</h4> -->
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        <p>Sunteti sigur ca doriți stergerea contului?</p>
+                                                    </div>
+                                                    <div>
 
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button type="button" class="btn btn-default red-bottom"
+                                                            data-dismiss="modal" (click)=deleteUser()>Sterge
+                                                            contul</button>
+                                                        <button type="button" class="btn btn-default"
+                                                            data-dismiss="modal">Close</button>
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <br>
+
+                                </form>
+
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 </div>

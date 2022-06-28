@@ -29,6 +29,10 @@ export class AddAppointmentComponent implements OnInit {
       this.hairdresserId = paramMap['id']
       this.day = paramMap['day']
     })
+
+    this.service.getAvailableSlots(this.hairdresserId, this.day).subscribe(responseAvailableSlot => {
+      this.availableSlots = JSON.parse(responseAvailableSlot);
+    })
   }
 
   onClickAddAppointment() {
@@ -47,9 +51,4 @@ export class AddAppointmentComponent implements OnInit {
     clickForClose(){
       this.routerLink.navigate(["/hairdressers"]);
     }
-
-    getAvailableSlots() { 
-     
-    }
-
 }

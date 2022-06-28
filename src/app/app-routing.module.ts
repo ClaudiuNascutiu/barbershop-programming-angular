@@ -15,7 +15,7 @@ const routes: Routes = [
     path: "register-user", component: NavBarComponent
   },
   {
-    path: "", component: HomeComponent, pathMatch: 'full'
+    path: "", component: HomeComponent
   },
   {
     path:"register-hairdresser", component:AddHairdresserComponent
@@ -33,7 +33,7 @@ const routes: Routes = [
     path:"user-profile", component: UserProfileComponent
   },
   {
-    path:"available-slots/:id/:day", component: AvailableSlotsComponent, pathMatch: 'full'
+    path:"available-slots/:id/:day", component: AvailableSlotsComponent
   },
 
   {
