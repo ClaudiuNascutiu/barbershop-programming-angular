@@ -56,7 +56,7 @@ export class AppointmentService {
   }
 
   deleteAppointmentById(appointment: AppointmentDTO): Observable<any>{
-    const url = '/api/appointment/${id}'
+    const url = '/api/appointment/${appointment.id}'
     return this.httpClient.delete(url)
   }
 

@@ -1,4 +1,4 @@
-import {  Time } from '@angular/common';
+import {  getLocaleDateFormat, Time } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AppointmentService } from 'src/app/service/appointment-service/appointment.service';
@@ -12,7 +12,7 @@ import { UserService } from 'src/app/service/user-service/user.service';
 })
 export class AddAppointmentComponent implements OnInit {
 
-  day = new Date()
+  day = new Date
   startTime = {} as Time
   hairdresserId = NaN
   clientId = NaN

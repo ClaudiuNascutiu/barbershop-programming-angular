@@ -57,9 +57,13 @@ export class UserProfileComponent implements OnInit {
   }
 
   deleteUser(){
+    if(this.appointmentService.getAllAppointmentsByClientId != null){
     this.appointmentService.deleteAllAppointmentByClientId().subscribe()
 
     this.userService.deleteUser().subscribe()
+  }else{
+    this.userService.deleteUser().subscribe()
+  }
     
     alert("Contul tau a fost sters")
 
