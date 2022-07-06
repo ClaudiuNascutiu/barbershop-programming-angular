@@ -15,6 +15,7 @@ import { AppointmentListComponent } from './appointment/appointment-list/appoint
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AvailableSlotsComponent } from './appointment/available-slots/available-slots.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
+import { ContactComponent } from './contact/contact.component';
 
 
 
@@ -31,6 +32,7 @@ import { UserProfileComponent } from './user-profile/user-profile.component';
     AppointmentListComponent,
     UserProfileComponent,
     AvailableSlotsComponent,
+    ContactComponent,
     
   ],
   imports: [
@@ -39,7 +41,7 @@ import { UserProfileComponent } from './user-profile/user-profile.component';
     FormsModule,
     HttpClientModule,
     ReactiveFormsModule,
-    NgbModule
+    NgbModule,
 
   ],
   providers: [],

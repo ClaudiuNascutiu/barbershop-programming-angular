@@ -9,7 +9,8 @@
       <p>Ora: {{appointment.startTime}}</p>
     </figcaption>
     <img src="https://cdn.w600.comps.canstockphoto.com/pop-art-barber-hipster-man-vector-clipart-vector_csp92988452.jpg" alt="sample6"/> 
-    <div class="position"><button class="bottom-delete">Sterge programarea</button></div>
+    <div class="position"><button class="bottom-delete" (click)="deleteAppointment(appointment)" >Anulează programarea</button></div>
+    
   </figure>
 </div>
 
@@ -23,6 +24,6 @@
         <p>Ora: {{appointmentForHairdresser.startTime}}</p>
       </figcaption>
       <img src="https://cdn.w600.comps.canstockphoto.com/pop-art-barber-hipster-man-vector-clipart-vector_csp92988452.jpg" alt="sample6"/> 
-      <div class="position"><button class="bottom-delete" (click) = "deleteAppointment(appointment)">Sterge programarea</button></div>
+      <div class="position"><button class="bottom-delete" (click)="deleteAppointment(appointment)">Anulează programarea</button></div>
     </figure>
   </div>

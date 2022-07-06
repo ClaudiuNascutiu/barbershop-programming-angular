@@ -7,10 +7,11 @@
             <form action="">
                 <div class="row g-3">
                     <div class="col-md-6">
-                        <input type="date" class="form-control" [(ngModel)]="day" name="day" placeholder="Enter Date" >
+                        <input type="date" class="form-control" [(ngModel)]="day" name="day" placeholder="Enter Date" (click)="click()">
                     </div>
                     <div class="col-md-6">
                         <input type="time" class="form-control" [(ngModel)]="startTime" name="startTime" placeholder="Enter Time">
+                        <!-- <app-available-slots [(ngModel)]="startTime" name="startTime" ></app-available-slots> -->
                     </div>
                     <div class="col-12 mt-5 move-book-close-button">                        
                         <button type="submit" class="btn btn-primary float-end" (click)="onClickAddAppointment()">Book Appointment</button>
@@ -21,10 +22,3 @@
         </div>
     </div>
 </div>
-
-<!-- <mat-datepicker #datepicker>
-    <mat-datepicker-actions>
-      <button mat-button matDatepickerCancel>Cancel</button>
-      <button mat-raised-button color="primary" matDatepickerApply>Apply</button>
-    </mat-datepicker-actions>
-  </mat-datepicker> -->

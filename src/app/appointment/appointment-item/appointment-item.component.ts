@@ -4,6 +4,7 @@ import { ActivatedRoute } from '@angular/router';
 import { Role } from 'src/app/enum/role';
 import { AppointmentService } from 'src/app/service/appointment-service/appointment.service';
 import { UserService } from 'src/app/service/user-service/user.service';
+import { AppointmentListComponent } from '../appointment-list/appointment-list.component';
 import { AppointmentDTO } from '../appointmentDTO/appointmentDTO';
 import { AppointmentDTOForHairdresser } from '../appointmentDTO/appointmentDTOForHairdresser';
 
@@ -36,10 +37,9 @@ export class AppointmentItemComponent implements OnInit {
     clientPhone: "",
     clientEmail: ""
   }
-  appointments: AppointmentDTO[];
 
   constructor(private userService: UserService, private appointmentService: AppointmentService,
-    private router: ActivatedRoute) { }
+    private router: ActivatedRoute, private appointmentList: AppointmentListComponent) { }
 
   ngOnInit(): void {
     this.router.params.subscribe(paramMap => {
@@ -55,11 +55,8 @@ export class AppointmentItemComponent implements OnInit {
     }
   }
 
-  deleteAppointment(appointment: AppointmentDTO){
-    this.appointments = this.appointments.filter(a => a !== appointment)
-    this.appointmentService.deleteAppointmentById(appointment).subscribe(response => {
-      console.log(response)
-    })
+  deleteAppointment(appointment: AppointmentDTO) {
+      this.appointmentList.deleteAppointment(appointment);
   }
 
 }

@@ -1,4 +1,5 @@
 import {  getLocaleDateFormat, Time } from '@angular/common';
+import { IfStmt } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AppointmentService } from 'src/app/service/appointment-service/appointment.service';
@@ -12,7 +13,7 @@ import { UserService } from 'src/app/service/user-service/user.service';
 })
 export class AddAppointmentComponent implements OnInit {
 
-  day = new Date
+  day = new Date()
   startTime = {} as Time
   hairdresserId = NaN
   clientId = NaN
@@ -29,10 +30,6 @@ export class AddAppointmentComponent implements OnInit {
       this.hairdresserId = paramMap['id']
       this.day = paramMap['day']
     })
-
-    this.service.getAvailableSlots(this.hairdresserId, this.day).subscribe(responseAvailableSlot => {
-      this.availableSlots = JSON.parse(responseAvailableSlot);
-    })
   }
 
   onClickAddAppointment() {
@@ -44,11 +41,19 @@ export class AddAppointmentComponent implements OnInit {
     };
     this.service.createAppointment(createAppointmentDTO).subscribe(response =>
       console.log(response));
-      alert("Multumim pentru programare")
+      alert("Mulțumim pentru programare")
       this.routerLink.navigate([""])
     }
 
     clickForClose(){
       this.routerLink.navigate(["/hairdressers"]);
+    }
+
+    click(){
+      if(this.day != null || this.day != undefined){
+        this.service.getAvailableSlots(this.hairdresserId, this.day).subscribe(responseAvailableSlot => {
+              this.availableSlots = JSON.parse(responseAvailableSlot);
+            })
+      }
     }
 }

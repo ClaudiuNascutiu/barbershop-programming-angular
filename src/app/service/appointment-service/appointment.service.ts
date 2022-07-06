@@ -13,6 +13,10 @@ export class AppointmentService {
 
   httpClient: HttpClient;
 
+  httpOptions = {
+    headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+  };
+
   constructor(client: HttpClient, private userService: UserService) {
     this.httpClient = client;
   }
@@ -22,9 +26,9 @@ export class AppointmentService {
   }
 
   getAvailableSlots(hairdresserId: number, day: Date): Observable<any> {
-    let queryParams = new HttpParams();
-    queryParams.append("id", hairdresserId)
-    queryParams.append("day", day.toString())
+    let queryParams = new HttpParams()
+    .set("id", hairdresserId)
+    .set("day",day.getDate.toString())
     return this.httpClient.get("api/appointment/available-slots", { params: queryParams })
   }
 
@@ -57,7 +61,7 @@ export class AppointmentService {
 
   deleteAppointmentById(appointment: AppointmentDTO): Observable<any>{
     const url = '/api/appointment/${appointment.id}'
-    return this.httpClient.delete(url)
+    return this.httpClient.delete(url, this.httpOptions)
   }
 
 }

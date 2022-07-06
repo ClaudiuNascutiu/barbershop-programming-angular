@@ -40,36 +40,34 @@ export class UserProfileComponent implements OnInit {
     alert("Contul dumneavoastra a fost editat")
   }
 
-  getFirstname(){
+  getFirstname() {
     return this.userService.getUser()?.firstname
   }
 
-  getLastname(){
+  getLastname() {
     return this.userService.getUser()?.lastname
   }
 
-  getPhoneNumber(){
+  getPhoneNumber() {
     return this.userService.getUser()?.phoneNumber
   }
 
-  getEmail(){
+  getEmail() {
     return this.userService.getUser()?.email
   }
 
-  deleteUser(){
-    if(this.appointmentService.getAllAppointmentsByClientId != null){
-    this.appointmentService.deleteAllAppointmentByClientId().subscribe()
+  deleteUser() {
+    if (this.appointmentService.getAllAppointmentsByClientId != null) {
+      this.appointmentService.deleteAllAppointmentByClientId().subscribe()
+    }
 
-    this.userService.deleteUser().subscribe()
-  }else{
-    this.userService.deleteUser().subscribe()
-  }
-    
+    this.userService.deleteUser().subscribe();
+
     alert("Contul tau a fost sters")
 
     this.userService.logout()
     this.routerLink.navigate([""])
   }
 
-  
+
 }

@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { AddAppointmentComponent } from './appointment/add-appointment/add-appointment.component';
 import { AppointmentListComponent } from './appointment/appointment-list/appointment-list.component';
 import { AvailableSlotsComponent } from './appointment/available-slots/available-slots.component';
+import { ContactComponent } from './contact/contact.component';
 import { AddHairdresserComponent } from './hairdresser/add-hairdresser/add-hairdresser.component';
 import { HairdresserListComponent } from './hairdresser/hairdresser-list/hairdresser-list.component';
 import { HomeComponent } from './home/home.component';
@@ -33,11 +34,15 @@ const routes: Routes = [
     path:"user-profile", component: UserProfileComponent
   },
   {
-    path:"available-slots/:id/:day", component: AvailableSlotsComponent
+    path:"add-appointment/:id/available-slots/:id/:day", component: AvailableSlotsComponent
   },
 
   {
     path: "user-profile", component:UserProfileComponent
+  },
+  
+  {
+    path: "contact", component: ContactComponent
   }
 
 ];

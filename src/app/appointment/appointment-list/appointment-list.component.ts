@@ -44,12 +44,11 @@ export class AppointmentListComponent implements OnInit {
     })}
   }
 
-  clientOrHairdresser(){
-    if(this.userService.getUser()?.role == "HAIRDRESSER"){
-     return false
-   }else{
-     return true
-   }
- }
+ deleteAppointment(appointments: AppointmentDTO){
+  this.appointment = this.appointment.filter(a => a !== appointments)
+  this.service.deleteAppointmentById(appointments).subscribe(response => {
+    console.log(response)
+  })
+}
 }
 

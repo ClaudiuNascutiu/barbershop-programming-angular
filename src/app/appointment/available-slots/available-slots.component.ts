@@ -16,8 +16,8 @@ export class AvailableSlotsComponent implements OnInit {
     minutes: NaN
   }
 
-  // day = new Date
-  // hairdresserId = NaN
+  day = new Date
+  hairdresserId = NaN
 
   constructor(private service: AppointmentService,private router: ActivatedRoute,) { }
 
