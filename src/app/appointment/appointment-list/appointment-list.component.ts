@@ -29,10 +29,6 @@ export class AppointmentListComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.router.params.subscribe(paramMap => {
-      this.clientId = paramMap['id']
-      this.hairdresserId = paramMap['id']
-    })
 
     if(this.userService.getUser()?.role == "CLIENT"){
     this.service.getAllAppointmentsByClientId().subscribe(responseAppointment =>{
@@ -44,11 +40,9 @@ export class AppointmentListComponent implements OnInit {
     })}
   }
 
- deleteAppointment(appointments: AppointmentDTO){
-  this.appointment = this.appointment.filter(a => a !== appointments)
-  this.service.deleteAppointmentById(appointments).subscribe(response => {
-    console.log(response)
-  })
+ deleteAppointment(id: number){
+  // this.appointment = this.appointment.filter(a => a !== appointments)
+  this.service.deleteAppointmentById(id).subscribe()
 }
 }
 

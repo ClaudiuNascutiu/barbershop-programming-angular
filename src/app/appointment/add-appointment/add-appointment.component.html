@@ -4,14 +4,15 @@
             <div class="col-12">
                 <h3 class="fw-normal text-secondary fs-4 text-uppercase mb-4"></h3>
             </div>
-            <form action="">
+            <form >
                 <div class="row g-3">
                     <div class="col-md-6">
-                        <input type="date" class="form-control" [(ngModel)]="day" name="day" placeholder="Enter Date" (click)="click()">
+                        <input type="date" class="form-control" (change)="showAvailableSlots()" [(ngModel)]="day" name="day" >
                     </div>
                     <div class="col-md-6">
-                        <input type="time" class="form-control" [(ngModel)]="startTime" name="startTime" placeholder="Enter Time">
-                        <!-- <app-available-slots [(ngModel)]="startTime" name="startTime" ></app-available-slots> -->
+                        <button  class="form-control move-available-slots" *ngFor="let a of availableSlots" (click)="onAvaialbleTimeClick(a)" name="startTime" >{{a}}</button>
+                        <!-- <app-available-slots *ngFor="let a of availableSlots" [availableSlots] = "a" (click)="onAvaialbleTimeClick(a)" ></app-available-slots> -->
+                        
                     </div>
                     <div class="col-12 mt-5 move-book-close-button">                        
                         <button type="submit" class="btn btn-primary float-end" (click)="onClickAddAppointment()">Book Appointment</button>

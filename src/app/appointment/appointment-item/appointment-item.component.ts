@@ -1,6 +1,6 @@
 import {  Time } from '@angular/common';
 import { Component, Input, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { Role } from 'src/app/enum/role';
 import { AppointmentService } from 'src/app/service/appointment-service/appointment.service';
 import { UserService } from 'src/app/service/user-service/user.service';
@@ -39,24 +39,25 @@ export class AppointmentItemComponent implements OnInit {
   }
 
   constructor(private userService: UserService, private appointmentService: AppointmentService,
-    private router: ActivatedRoute, private appointmentList: AppointmentListComponent) { }
+    private router: ActivatedRoute, private appointmentList: AppointmentListComponent, private routerLink: Router) { }
 
   ngOnInit(): void {
-    this.router.params.subscribe(paramMap => {
-      this.appointment.id = paramMap['id']
-    })
+    
   }
 
   clientOrHairdresser(){
      if(this.userService.getUser()?.role == "HAIRDRESSER"){
-      return false
+      return false;
     }else{
-      return true
+      return true;
     }
   }
 
-  deleteAppointment(appointment: AppointmentDTO) {
-      this.appointmentList.deleteAppointment(appointment);
+  deleteAppointment(id: number) {
+      this.appointmentList.deleteAppointment(id);
+      if(confirm("Doriti sa stergeti programarea?")){
+        window.location.reload();
+      }
   }
 
 }

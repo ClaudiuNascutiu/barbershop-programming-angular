@@ -16,6 +16,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AvailableSlotsComponent } from './appointment/available-slots/available-slots.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
 import { ContactComponent } from './contact/contact.component';
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 
 
 
@@ -42,6 +43,7 @@ import { ContactComponent } from './contact/contact.component';
     HttpClientModule,
     ReactiveFormsModule,
     NgbModule,
+    NoopAnimationsModule,
 
   ],
   providers: [],

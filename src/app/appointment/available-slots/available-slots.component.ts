@@ -16,20 +16,9 @@ export class AvailableSlotsComponent implements OnInit {
     minutes: NaN
   }
 
-  day = new Date
-  hairdresserId = NaN
-
   constructor(private service: AppointmentService,private router: ActivatedRoute,) { }
 
   ngOnInit(): void {
-    // this.router.params.subscribe(paramMap => {
-    //   this.hairdresserId = paramMap['id']
-    //   this.day = paramMap['day']
-    // })
-
-    // this.service.getAvailableSlots(this.hairdresserId, this.day).subscribe(responseAvailableSlot => {
-    //   this.availableSlots = JSON.parse(responseAvailableSlot);
-    // })
   }
 
 }

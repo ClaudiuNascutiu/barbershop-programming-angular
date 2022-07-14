@@ -37,7 +37,9 @@ export class UserProfileComponent implements OnInit {
 
     }
     this.userService.updateUser(updateUserDTO).subscribe()
-    alert("Contul dumneavoastra a fost editat")
+    if(confirm("Contul dumneavoastra a fost editat")){
+      window.location.reload();
+    }
   }
 
   getFirstname() {
@@ -56,12 +58,16 @@ export class UserProfileComponent implements OnInit {
     return this.userService.getUser()?.email
   }
 
-  deleteUser() {
-    if (this.appointmentService.getAllAppointmentsByClientId != null) {
-      this.appointmentService.deleteAllAppointmentByClientId().subscribe()
-    }
+  async deleteUser() {
+    if (this.appointmentService.getAllAppointmentsByClientId != null ||
+      this.appointmentService.getAllAppointmentsByHairdresserId != null) 
+    {
+     this.appointmentService.deleteAllAppointmentByUserId().subscribe()
+     this.userService.deleteUser().subscribe();
 
-    this.userService.deleteUser().subscribe();
+    }else{
+      this.userService.deleteUser().subscribe();
+    }
 
     alert("Contul tau a fost sters")
 

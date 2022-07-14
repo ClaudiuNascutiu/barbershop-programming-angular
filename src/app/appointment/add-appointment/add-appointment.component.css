@@ -6,7 +6,6 @@ button.calendar, button.calendar:active {
     background-position: center;
   }
   
-  /* Sortable table demo */
   
   th[sortable] {
     cursor: pointer;
@@ -30,12 +29,10 @@ button.calendar, button.calendar:active {
     -ms-transform: rotate(180deg);
   }
   
-  /* Filtering table demo */
   ngbd-table-filtering span.ngb-highlight {
     background-color: yellow;
   }
   
-  /* Complete table demo */
   ngbd-table-complete span.ngb-highlight {
     background-color: yellow;
   }
@@ -43,7 +40,7 @@ button.calendar, button.calendar:active {
   ngb-carousel .picsum-img-wrapper {
     position: relative;
     height: 0;
-    padding-top: 55%; /* Keep ratio for 900x500 images */
+    padding-top: 55%; 
   }
   
   ngb-carousel .picsum-img-wrapper>img {
@@ -63,6 +60,11 @@ button.calendar, button.calendar:active {
   }
   .move-close-button{
     margin-left: 5%;
+  }
+
+  .move-available-slots{
+    margin: 5px;
+    
   }
 
   
