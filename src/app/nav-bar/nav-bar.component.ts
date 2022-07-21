@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { UserService } from '../service/user-service/user.service';
-import { UserLoginDTO } from '../user/UserDTO/UserLoginDTO';
 import { Router } from '@angular/router';
+import { UserCreateDTO } from '../user/UserDTO/UserCreateDto';
 @Component({
   selector: 'app-nav-bar',
   templateUrl: './nav-bar.component.html',
@@ -40,7 +40,8 @@ export class NavBarComponent implements OnInit {
   }
 
   onClick() {
-    this.service.login(new UserLoginDTO(this.email, this.password));
+    this.service.login(new UserCreateDTO(this.firstname, this.lastname, 
+      this.phoneNumber, this.email, this.password));
     this.router.navigate(['']);
   }
 

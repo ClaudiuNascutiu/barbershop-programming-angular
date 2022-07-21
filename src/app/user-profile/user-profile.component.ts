@@ -1,5 +1,6 @@
 
 import { Component, OnInit } from '@angular/core';
+import { waitForAsync } from '@angular/core/testing';
 import { Router } from '@angular/router';
 import { UserService } from 'src/app/service/user-service/user.service';
 import { AppointmentService } from '../service/appointment-service/appointment.service';
@@ -37,43 +38,28 @@ export class UserProfileComponent implements OnInit {
 
     }
     this.userService.updateUser(updateUserDTO).subscribe()
-    if(confirm("Contul dumneavoastra a fost editat")){
-      window.location.reload();
+    alert("Contul dumneavoastra a fost editat")
+
+
+  }
+  async deleteAllAppointment() {
+    if (this.appointmentService.getAllAppointmentsByClientId != null ||
+      this.appointmentService.getAllAppointmentsByHairdresserId != null) {
+      this.appointmentService.deleteAllAppointmentByUserId().subscribe()
     }
-  }
-
-  getFirstname() {
-    return this.userService.getUser()?.firstname
-  }
-
-  getLastname() {
-    return this.userService.getUser()?.lastname
-  }
-
-  getPhoneNumber() {
-    return this.userService.getUser()?.phoneNumber
-  }
-
-  getEmail() {
-    return this.userService.getUser()?.email
   }
 
   async deleteUser() {
-    if (this.appointmentService.getAllAppointmentsByClientId != null ||
-      this.appointmentService.getAllAppointmentsByHairdresserId != null) 
-    {
-     this.appointmentService.deleteAllAppointmentByUserId().subscribe()
-     this.userService.deleteUser().subscribe();
 
-    }else{
+    if (this.deleteAllAppointment()) {
+      this.userService.deleteUser().subscribe();
+    } else {
       this.userService.deleteUser().subscribe();
     }
-
     alert("Contul tau a fost sters")
 
     this.userService.logout()
     this.routerLink.navigate([""])
   }
-
 
 }

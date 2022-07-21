@@ -1,15 +1,20 @@
 import { Time } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
+import { Component, Injectable, Input, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { timestamp } from 'rxjs/internal/operators/timestamp';
+import { HairdresserDTO } from 'src/app/hairdresser/hairdresserDTO/hairdresserDTO';
 import { AppointmentService } from 'src/app/service/appointment-service/appointment.service';
 import { UserService } from 'src/app/service/user-service/user.service';
+
 
 
 @Component({
   selector: 'app-add-appointment',
   templateUrl: './add-appointment.component.html',
   styleUrls: ['./add-appointment.component.css']
+})
+
+@Injectable({
+  providedIn: 'root'
 })
 export class AddAppointmentComponent implements OnInit {
 
@@ -18,17 +23,23 @@ export class AddAppointmentComponent implements OnInit {
   clientId = NaN;
 
   startTime = {} as Time;
-
   availableSlots: Time[] = [];
+  
+  hairdresser = {} as HairdresserDTO;
 
-  constructor(private service: AppointmentService, private clientService: UserService,
-    private router: ActivatedRoute, private routerLink: Router) {
+  constructor(private service: AppointmentService, private userService: UserService,
+    private router: ActivatedRoute, private routerLink: Router,
+    ) {
 
   }
 
   ngOnInit(): void {
     this.router.params.subscribe(paramMap => {
       this.hairdresserId = paramMap['id']
+    })
+
+    this.userService.getUserById(this.hairdresserId).subscribe(response => {
+      this.hairdresser = response;
     })
   }
 
@@ -37,7 +48,7 @@ export class AddAppointmentComponent implements OnInit {
       "day": this.day,
       "startTime": this.startTime,
       "hairdresserId": this.hairdresserId,
-      "clientId": this.clientService.getUser()?.id
+      "clientId": this.userService.getUser()?.id
     };
     this.service.createAppointment(createAppointmentDTO).subscribe(response =>
       console.log(response));
@@ -62,5 +73,5 @@ export class AddAppointmentComponent implements OnInit {
     console.log(time);
     this.startTime = time;
   }
-
 }
+

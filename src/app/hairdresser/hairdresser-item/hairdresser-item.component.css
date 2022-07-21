@@ -1,6 +1,6 @@
 .user-container {
-    width: 300px;
-    height: 500px;
+    width: 280px;
+    height: 360px;
     background-color: darkslategray;
     color: ghostwhite;
     display: flex;
@@ -58,3 +58,11 @@ p {
     padding: 0 20px;
     border-color: yellowgreen;
 }
+
+.smaller-carousel{
+    width: 15px;
+    height: 15px;
+}
+
+
+

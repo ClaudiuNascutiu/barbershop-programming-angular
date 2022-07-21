@@ -11,7 +11,7 @@
     </span>
 
     <div class="div-button">
-        <button [routerLink]="['/hairdressers', getRole()]" class="button"><span class="text-color-font">Alegeți unul
+        <button (click)="checkLogin()" [routerLink]="['/hairdressers', getRole()]" class="button"><span class="text-color-font">Alegeți unul
                 dintre frizerii noștrii ></span></button>
     </div>
 </div>

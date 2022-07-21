@@ -3,7 +3,6 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 import { UserCreateDTO } from '../../user/UserDTO/UserCreateDto';
 import { Observable } from 'rxjs';
 import { UserDTO } from 'src/app/user/UserDTO/UserDTO';
-import { UserLoginDTO } from 'src/app/user/UserDTO/UserLoginDTO';
 
 @Injectable({
   providedIn: 'root'
@@ -22,7 +21,7 @@ export class UserService {
     return this.httpClient.post("api/user/client/signup", createUserDTO);
   }
 
-  login(userWithCredentials: UserLoginDTO){
+  login(userWithCredentials: UserCreateDTO){
     this.httpClient.post("/api/user/login", userWithCredentials).subscribe(
       response => {
         const responseUser = response as UserDTO;
@@ -56,11 +55,7 @@ export class UserService {
   }
 
   public updateUser(userDto: UserDTO): Observable<any>{
-    // let params = new HttpParams({
-    //   fromObject: {
-    //     id: this.getUser()?.id
-    //   }
-    // })
+    
     return this.httpClient.put("api/user", userDto)
 
   }
@@ -72,5 +67,11 @@ export class UserService {
         }
       })
   return this.httpClient.delete("api/user", {params})
+  }
+
+  public getUserById(id: number): Observable<any> {
+    let params = new HttpParams
+    params = params.append("id", id)
+    return this.httpClient.get("api/user/userid", {params});
   }
 }

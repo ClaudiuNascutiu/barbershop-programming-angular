@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AddAppointmentComponent } from './appointment/add-appointment/add-appointment.component';
 import { AppointmentListComponent } from './appointment/appointment-list/appointment-list.component';
-import { AvailableSlotsComponent } from './appointment/available-slots/available-slots.component';
 import { ContactComponent } from './contact/contact.component';
 import { AddHairdresserComponent } from './hairdresser/add-hairdresser/add-hairdresser.component';
 import { HairdresserListComponent } from './hairdresser/hairdresser-list/hairdresser-list.component';
@@ -32,9 +31,6 @@ const routes: Routes = [
   },
   {
     path:"user-profile", component: UserProfileComponent
-  },
-  {
-    path:"add-appointment/:id/available-slots/:id/:day", component: AvailableSlotsComponent
   },
 
   {

@@ -1,4 +1,4 @@
-import {  NgModule } from '@angular/core';
+import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -13,10 +13,10 @@ import { AddAppointmentComponent } from './appointment/add-appointment/add-appoi
 import { AppointmentItemComponent } from './appointment/appointment-item/appointment-item.component';
 import { AppointmentListComponent } from './appointment/appointment-list/appointment-list.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { AvailableSlotsComponent } from './appointment/available-slots/available-slots.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
 import { ContactComponent } from './contact/contact.component';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
+import { MatDialogModule, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 
 
 
@@ -32,9 +32,8 @@ import { NoopAnimationsModule } from '@angular/platform-browser/animations';
     AppointmentItemComponent,
     AppointmentListComponent,
     UserProfileComponent,
-    AvailableSlotsComponent,
     ContactComponent,
-    
+
   ],
   imports: [
     BrowserModule,
@@ -44,9 +43,15 @@ import { NoopAnimationsModule } from '@angular/platform-browser/animations';
     ReactiveFormsModule,
     NgbModule,
     NoopAnimationsModule,
+    MatDialogModule,
+    FormsModule
 
   ],
-  providers: [],
+  providers: [
+    {
+      provide: AddAppointmentComponent,
+      useValue: {}
+    }],
   bootstrap: [AppComponent],
 })
 export class AppModule { }

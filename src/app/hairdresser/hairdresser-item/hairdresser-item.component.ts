@@ -23,7 +23,4 @@ export class HairdresserItemComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  
-  
-
 }
