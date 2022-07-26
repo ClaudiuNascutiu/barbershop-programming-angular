@@ -18,6 +18,8 @@ import { UserService } from 'src/app/service/user-service/user.service';
 })
 export class AddAppointmentComponent implements OnInit {
 
+  dayForDisable = new Date();
+
   day = new Date();
   hairdresserId = NaN;
   clientId = NaN;
@@ -52,16 +54,16 @@ export class AddAppointmentComponent implements OnInit {
     };
     this.service.createAppointment(createAppointmentDTO).subscribe(response =>
       console.log(response));
-    alert("Mulțumim pentru programare")
     this.routerLink.navigate([""])
   }
 
   clickForClose() {
-    this.routerLink.navigate(["/hairdressers"]);
+    window.location.reload();
   }
 
   showAvailableSlots() {
     this.service.getAvailableSlots(this.hairdresserId, this.day).subscribe(responseAvailableSlot => {
+      console.log(this.day)
       console.log(responseAvailableSlot);
       this.availableSlots = responseAvailableSlot;
 
@@ -72,6 +74,15 @@ export class AddAppointmentComponent implements OnInit {
   onAvaialbleTimeClick(time: Time) {
     console.log(time);
     this.startTime = time;
+  }
+
+  isSunday(day: any){ 
+    const date = new Date(day)
+    if(date.getDay() == 0){
+      return true;
+    }else{
+      return false;
+    }
   }
 }
 

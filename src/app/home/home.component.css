@@ -1,13 +1,13 @@
-.background {
+/* .background {
     width: 100%;
     margin-top: -19px;
-}
+} */
 
-.img-background {
+/* .img-background {
     max-width: 100%;
     max-height: 100%;
     display: block;
-}
+} */
 
 .edit-text {
     padding-left: 50px;
@@ -26,7 +26,7 @@
 }
 
 .background-div {
-    margin-top: 49%;
+    margin-top: 3%;
     background-color: darkseagreen;
     height: 260px;
 }
@@ -36,7 +36,7 @@
 }
 
 .text_color-1 {
-    color: whitesmoke;
+    color: rgb(12, 65, 146)
 }
 
 h3 {
@@ -86,12 +86,17 @@ h1 {
     font-family: open-sans-semibold;
 }
 
-.background-div-programming {
+/* .background-div-programming {
     margin-top: -60%;
     margin-right: 5%;
-}
+} */
 
-.img-move {
+/* .img-move {
     display: flex;
     justify-content: flex-end;
+} */
+
+.programming{
+    margin-top: 5%;
+    background-color: antiquewhite;
 }

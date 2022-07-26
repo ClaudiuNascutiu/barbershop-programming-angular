@@ -116,22 +116,68 @@
 
                     <div class="modal-body">
                         <h6>Selecteaza data: </h6>
-                        <input type="date" class="form-control" (change)="showAvailableSlots()" [(ngModel)]="day"
+                        <input type="date" min="{{dayForDisable | date:'yyyy-MM-dd'}}" class="form-control" (change)="showAvailableSlots()" [(ngModel)]="day"
                             name="day">
                     </div>
                     <div class="modal-body">
 
-                        <div class="col-md-6 move-available-slots">
-                            <button type="button" class="form-control space-button btn button"
+                        <div class="col-md-6 move-available-slots" *ngIf="!isSunday(day)">
+                            <button type="button" class="form-control space-button btn button" 
+                                 data-toggle="modal" data-target="#myModal2"
                                 *ngFor="let a of availableSlots" (click)="onAvaialbleTimeClick(a)"
                                 name="startTime">{{a}}</button>
+                        </div>
+                        <div class="col-md-6 closed" *ngIf="isSunday(day)">
+                            <span  class=""
+                                name="startTime">Închis</span>
                         </div>
                     </div>
 
                     <div class="modal-footer ">
-                        <button type="button" class="btn btn-default red-bottom button-move" data-dismiss="modal"
-                            (click)="onClickAddAppointment()">Programează-te</button>
-                        <button type="button" class="btn btn-default button-move" data-dismiss="modal">Închide</button>
+                        
+                        
+
+                        <div class="modal fade" id="myModal2" role="dialog">
+                            <div class="modal-dialog modal-sm">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <button type="button" class="close"
+                                            data-dismiss="modal">&times;</button>
+                                        <h4 class="modal-title">Verifică și confirmă</h4>
+                                    </div>
+
+                                    <div class="modal-body">
+                                        <h5> <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-check-fill" viewBox="0 0 16 16">
+                                            <path fill-rule="evenodd" d="M15.854 5.146a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 0 1 .708-.708L12.5 7.793l2.646-2.647a.5.5 0 0 1 .708 0z"/>
+                                            <path d="M1 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
+                                          </svg> &nbsp;&nbsp; {{hairdresser.firstname}} {{hairdresser.lastname}}</h5>
+                                    </div>
+                                    <div class="modal-body">
+                                        <h5><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-calendar-check" viewBox="0 0 16 16">
+                                            <path d="M10.854 7.146a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7.5 9.793l2.646-2.647a.5.5 0 0 1 .708 0z"/>
+                                            <path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z"/>
+                                          </svg> &nbsp;&nbsp; {{day}}</h5>
+                                    </div>
+                                    <div class="modal-body">
+                                        <h5><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-clock"
+                                            viewBox="0 0 16 16">
+                                            <path d="M8 3.5a.5.5 0 0 0-1 0V9a.5.5 0 0 0 .252.434l3.5 2a.5.5 0 0 0 .496-.868L8 8.71V3.5z" />
+                                            <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm7-8A7 7 0 1 1 1 8a7 7 0 0 1 14 0z" />
+                                        </svg> &nbsp;&nbsp; {{startTime}}</h5>
+                                    </div>
+                                    <div>
+
+                                    </div>
+                                    <div class="modal-footer">
+
+                                        <button type="button" class="btn btn-default red-bottom button-move" data-dismiss="modal"
+                                             (click)="onClickAddAppointment()">Programează-te</button>
+                                             <button type="button" class="btn btn-default button-move" data-dismiss="modal" (click)="clickForClose()">Închide</button>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
