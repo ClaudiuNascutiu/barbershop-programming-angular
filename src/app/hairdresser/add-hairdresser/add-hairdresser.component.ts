@@ -36,6 +36,7 @@ export class AddHairdresserComponent implements OnInit {
     this.service.createHairdresser(createHairdresserDTO).subscribe(response => {
       console.log(response);
     })
+    
   }
 
 }

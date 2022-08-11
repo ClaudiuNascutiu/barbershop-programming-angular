@@ -1,6 +1,4 @@
-
 import { Component, OnInit } from '@angular/core';
-import { waitForAsync } from '@angular/core/testing';
 import { Router } from '@angular/router';
 import { UserService } from 'src/app/service/user-service/user.service';
 import { AppointmentService } from '../service/appointment-service/appointment.service';
@@ -15,10 +13,19 @@ import { AppointmentService } from '../service/appointment-service/appointment.s
 export class UserProfileComponent implements OnInit {
 
 
-  firstname = this.userService.getUser()?.firstname;
-  lastname = this.userService.getUser()?.lastname;
-  phoneNumber = this.userService.getUser()?.phoneNumber;
-  email = this.userService.getUser()?.email;
+  // firstname = this.userService.getUser()?.firstname;
+  // lastname = this.userService.getUser()?.lastname;
+  // phoneNumber = this.userService.getUser()?.phoneNumber;
+  // email = this.userService.getUser()?.email;
+  updateUserDTO = {
+    "id": this.userService.getUser().id,
+    "firstname": this.userService.getUser().firstname,
+    "lastname": this.userService.getUser().lastname,
+    "phoneNumber": this.userService.getUser().phoneNumber,
+    "email": this.userService.getUser().email,
+    "password": this.userService.getUser().password,
+    "role": this.userService.getUser().role
+  }
 
   constructor(private userService: UserService, private appointmentService: AppointmentService,
     private routerLink: Router) { }
@@ -27,32 +34,40 @@ export class UserProfileComponent implements OnInit {
   }
 
   updateUser() {
-    const updateUserDTO = {
-      "id": this.userService.getUser()?.id,
-      "firstname": this.firstname,
-      "lastname": this.lastname,
-      "phoneNumber": this.phoneNumber,
-      "email": this.email,
-      "password": this.userService.getUser()?.password,
-      "role": this.userService.getUser()?.role
+    this.userService.updateUser(this.updateUserDTO).subscribe(response => {
+      console.log(response);
+      this.userService.setUser(response);
+    })
 
-    }
-    this.userService.updateUser(updateUserDTO).subscribe()
-    alert("Contul dumneavoastra a fost editat")
+    alert("Contul dumneavoastra a fost editat");
 
-    window.location.reload()
+    window.location.reload();
 
   }
-   async deleteAllAppointment() {
+  async deleteAllAppointment(): Promise<void> {
+    let resolveRef: (value: void | PromiseLike<void>) => void;
+    let rejectRef;
+
+    let dataPromise: Promise<void> = new Promise((resolve, reject) => {
+      resolveRef = resolve;
+      rejectRef = reject;
+    })
+
     if (this.appointmentService.getAllAppointmentsByClientId != null ||
       this.appointmentService.getAllAppointmentsByHairdresserId != null) {
-      this.appointmentService.deleteAllAppointmentByUserId().subscribe()
+      this.appointmentService.deleteAllAppointmentByUserId().subscribe(() =>{
+      
+      resolveRef(null);
     }
+      );
+    }
+
+    return dataPromise;
   }
 
-   async deleteUser() {
+  async deleteUser() {
 
-    await this.deleteAllAppointment()
+    await this.deleteAllAppointment().then();
     this.userService.deleteUser().subscribe();
 
     alert("Contul tau a fost sters")

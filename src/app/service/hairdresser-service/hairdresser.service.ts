@@ -1,9 +1,7 @@
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Role } from 'src/app/enum/role';
 import { HairdresserCreateDTO } from 'src/app/hairdresser/hairdresserDTO/createHairdresserDTO';
-import { UserService } from '../user-service/user.service';
 
 @Injectable({
   providedIn: 'root'

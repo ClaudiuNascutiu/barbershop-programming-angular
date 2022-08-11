@@ -43,7 +43,7 @@ export class UserService {
     localStorage.setItem(this.userLabel, "");
   }
 
-  private setUser(user: UserDTO) {
+  public setUser(user: UserDTO) {
     localStorage.setItem(this.userLabel, JSON.stringify(user));
   }
 
@@ -55,7 +55,6 @@ export class UserService {
   }
 
   public updateUser(userDto: UserDTO): Observable<any> {
-
     return this.httpClient.put("api/user", userDto)
 
   }

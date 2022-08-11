@@ -51,10 +51,37 @@
 
                                 <div class="d-flex justify-content-center">
                                     <button type="button"
-                                        class="btn btn-success btn-block btn-lg gradient-custom-4 text-body" (click) = "onClick()">Register</button>
+                                        class="btn btn-success btn-block btn-lg gradient-custom-4 text-body" (click) = "onClick()"
+                                        data-toggle="modal" data-target="#myModal">Register</button>
+
+                                        <div class="modal fade" id="myModal" role="dialog">
+                                            <div class="modal-dialog modal-sm">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <button type="button" class="close"
+                                                            data-dismiss="modal">&times;</button>
+                                                        <!-- <h4 class="modal-title">Modal Header</h4> -->
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        <p>Contul tău a fost creat !</p>
+                                                    </div>
+                                                    <div>
+
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <!-- <button type="button" class="btn btn-default red-bottom"
+                                                            data-dismiss="modal" >Sterge
+                                                            contul</button> -->
+                                                        <button type="button" class="btn btn-default"
+                                                            data-dismiss="modal" routerLink="">Login</button>
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
                                 </div>
 
-                                <p class="text-center text-muted mt-5 mb-0">Have already an account? <a href="#!"
+                                <p class="text-center text-muted mt-5 mb-0">Have already an account? <a href=""
                                         class="fw-bold text-body"><u>Login here</u></a></p>
 
                             </form>
