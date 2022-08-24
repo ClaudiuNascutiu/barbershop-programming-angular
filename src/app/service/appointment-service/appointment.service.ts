@@ -1,9 +1,6 @@
-import { getLocaleDateFormat } from '@angular/common';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { NgbDate } from '@ng-bootstrap/ng-bootstrap';
-import { Observable, timestamp } from 'rxjs';
-import { AppointmentDTO } from 'src/app/appointment/appointmentDTO/appointmentDTO';
+import { Observable } from 'rxjs';
 import { AppointmentCreateDTO } from 'src/app/appointment/appointmentDTO/createAppointmentDTO';
 import { UserService } from '../user-service/user.service';
 
@@ -26,13 +23,10 @@ export class AppointmentService {
     return this.httpClient.post("api/appointment", createAppointmentDTO);
   }
 
-  formatDate(date: any): string {
-    date = new Date(date)
-    console.log(date)
-    const day = date.getDate() < 10 ? `0${date.getDate()}` : date.getDate() + '';
-    const month = date.getMonth() + 1 < 10 ? `0${date.getMonth() + 1}` : (date.getMonth() + 1) + '';
-    const year = date.getFullYear() + '';
-    return `${year}-${month}-${day}`;
+  deleteAppointmentById(id: number) {
+    let params = new HttpParams()
+      .append("id", id)
+    return this.httpClient.delete("/api/appointment", { params: params })
   }
 
   getAvailableSlots(hairdresserId: number, day: Date): Observable<any> {
@@ -43,15 +37,22 @@ export class AppointmentService {
     return this.httpClient.get("api/appointment/available-slots", { params: queryParams })
   }
 
-
-
-  getAllAppointmentsByClientId(): Observable<any> {
+  getAllAppointmentsByClientIdBefore(): Observable<any> {
     let params = new HttpParams({
       fromObject: {
         id: this.userService.getUser()?.id
       }
     });
-    return this.httpClient.get("api/appointment/client", { params: params })
+    return this.httpClient.get("api/appointment/before", { params: params })
+  }
+
+  getAllAppointmentsByClientIdAfter(): Observable<any> {
+    let params = new HttpParams({
+      fromObject: {
+        id: this.userService.getUser()?.id
+      }
+    });
+    return this.httpClient.get("api/appointment/after", { params: params })
   }
 
   getAllAppointmentsByHairdresserId(): Observable<any> {
@@ -72,10 +73,23 @@ export class AppointmentService {
     return this.httpClient.delete("/api/appointment/deleteAll", { params: params })
   }
 
-  deleteAppointmentById(id: number) {
-    let params = new HttpParams()
-      .append("id", id)
-    return this.httpClient.delete("/api/appointment", { params: params })
+  getAppointmentsBeforeCurrentDate(): Observable<any> {
+    let params = new HttpParams({
+      fromObject: {
+        id: this.userService.getUser()?.id
+      }
+    });
+
+    return this.httpClient.get("api/appointment", { params: params });
+  }
+
+  formatDate(date: any): string {
+    date = new Date(date)
+    console.log(date)
+    const day = date.getDate() < 10 ? `0${date.getDate()}` : date.getDate() + '';
+    const month = date.getMonth() + 1 < 10 ? `0${date.getMonth() + 1}` : (date.getMonth() + 1) + '';
+    const year = date.getFullYear() + '';
+    return `${year}-${month}-${day}`;
   }
 
 }

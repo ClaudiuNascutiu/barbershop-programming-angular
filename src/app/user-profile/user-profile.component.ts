@@ -53,7 +53,7 @@ export class UserProfileComponent implements OnInit {
       rejectRef = reject;
     })
 
-    if (this.appointmentService.getAllAppointmentsByClientId != null ||
+    if (this.appointmentService.getAllAppointmentsByClientIdAfter() != null ||
       this.appointmentService.getAllAppointmentsByHairdresserId != null) {
       this.appointmentService.deleteAllAppointmentByUserId().subscribe(() =>{
       

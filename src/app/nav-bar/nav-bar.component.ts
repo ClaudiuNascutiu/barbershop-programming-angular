@@ -11,13 +11,9 @@ import { UserCreateDTO } from '../user/UserDTO/UserCreateDto';
 export class NavBarComponent implements OnInit {
 
   firstname = ""
-
   lastname = ""
-
   phoneNumber = ""
-
   email = ""
-
   password = ""
 
   constructor(private service: UserService,
@@ -26,7 +22,7 @@ export class NavBarComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  onSubmit(form: NgForm) {
+  signUp(form: NgForm) {
     const createUserDTO = {
       "firstname": this.firstname,
       "lastname": this.lastname,
@@ -39,10 +35,15 @@ export class NavBarComponent implements OnInit {
     })
   }
 
-  onClick() {
+  login() {
     this.service.login(new UserCreateDTO(this.firstname, this.lastname, 
       this.phoneNumber, this.email, this.password));
     this.router.navigate(['']);
+  }
+
+  logoutUser() {
+    this.service.logout();
+    this.router.navigate([""])
   }
 
   userLoggedIn() {
@@ -52,10 +53,7 @@ export class NavBarComponent implements OnInit {
         return true;
       }
   }
-  logoutUser() {
-    this.service.logout();
-    this.router.navigate([""])
-  }
+  
 
   getUserName(){
    return this.service.getUser()?.lastname;

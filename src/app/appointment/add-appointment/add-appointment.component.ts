@@ -84,5 +84,13 @@ export class AddAppointmentComponent implements OnInit {
       return false;
     }
   }
+
+  availableSlotsEmpty(){
+    if(this.availableSlots.length == 0) {
+      return true;
+    }else{
+      return false;
+    }
+  }
 }
 

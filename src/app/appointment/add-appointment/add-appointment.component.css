@@ -226,12 +226,40 @@ h3{
   background-color: whitesmoke;
   text-align: center;
   justify-content: center;
-  margin-left: 70px;
+  margin-left: 40px;
   display: flex;
   font-size: 20px;
-  border: solid;
+  border: 3px whitesmoke solid;
+  box-shadow: 3px 5px rgba(0, 0, 0, 0.2);
   margin-bottom: 10%;
+  border-radius: 5%;
+  width: 220px;
+  height: 70px;
+}
+
+.closed-sunday{
+  margin-top: 20%;
+  background-color: whitesmoke;
+  text-align: center;
+  justify-content: center;
+  margin-left: 40px;
+  display: flex;
+  font-size: 20px;
+  border: 3px whitesmoke solid;
+  box-shadow: 3px 5px rgba(0, 0, 0, 0.2);
+  margin-bottom: 10%;
+  border-radius: 5%;
+  width: 220px;
+  height: 35px;
+}
+
+.item{
+  
     
+    background-color: whitesmoke;
+    
+    
+    text-align: center;
 }
 
 h5{

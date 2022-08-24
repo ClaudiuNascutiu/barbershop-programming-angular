@@ -1,0 +1,127 @@
+<!-- <div class="background">
+    <img class="img-background" src="https://authenticbarberco.com/wp-content/uploads/2015/01/classicbarbershop.jpg"
+        alt="sample">
+    </div> -->
+
+<div class="programming">
+
+    <span>
+        <h1 class="edit-text-1 text_color-1">
+            Programează-te online simplu și rapid
+        </h1>
+    </span>
+    <div>
+        <div class="div-button">
+            <button (click)="checkLogin()" [routerLink]="['/hairdressers', getRole()]" class="button"><span
+                    class="text-color-font">Alegeți unul
+                    dintre frizerii noștrii ></span></button>
+        </div>
+    </div>
+</div>
+
+<div *ngIf="checkAppointment()">
+    <span>
+        <h1>&nbsp;&nbsp; Ultimele programări</h1>
+        <div class="display-appointment">
+            <app-appointments-card *ngFor="let app of appointmentCard" [appointmentCard]="app" class="space-card">
+            </app-appointments-card>
+            <div class="display-center">
+                <h2 class="all-programming" [routerLink]="['/allAppointment', getUserId()]">Toate programările >></h2>
+            </div>
+        </div>
+    </span>
+</div>
+
+<section>
+    <div>
+        <h1 class="title ">Cum funcționează?</h1>
+        <div class="display">
+            <div class="w-48 h-48 sm:mr-24 icon-search"><svg xmlns="http://www.w3.org/2000/svg" width="50.414"
+                    height="50.617">
+                    <g transform="translate(-1 -.793)">
+                        <circle cx="8" cy="8" r="8" transform="translate(29.2 29.196)" fill="#d1e7f5"></circle>
+                        <path
+                            d="m30.08 33.6-1.2-.4-.88-.48A3.04 3.04 0 0 1 26 30v-1.6a10.96 10.96 0 0 0 3.2-5.6c2 0 3.2-2.4 3.2-4.8 0-.64 0-3.2-1.6-3.2 4-11.6-7.68-16-16-10.4-3.52 0-4.48 5.28-3.2 10.4-1.6 0-1.6 2.556-1.6 3.2 0 2.4 1.2 4.8 3.2 4.8a10.56 10.56 0 0 0 3.2 5.6V30c0 1.28-.4 2.88-6.88 4.16A9.332 9.332 0 0 0 2 41.2h28.24a7.92 7.92 0 0 1-.24-7.6Z"
+                            fill="#a5d0ec"></path>
+                        <path
+                            d="M30.24 41.196a7.92 7.92 0 0 1-.24-7.6l-1.12-.4-.88-.48a8 8 0 0 0-2.4 8.48h4.64Zm-13.84-18.4c.64 2.4 3.28 4.24 4.8 5.6v1.6c0 1.28-.4 2.88-6.88 4.16a9.332 9.332 0 0 0-7.52 7.04H2s0-5.6 7.52-7.04 6.88-2.88 6.88-4.16v-1.6a10.88 10.88 0 0 1-3.2-5.6c-2 0-3.2-2.4-3.2-4.8 0-.64 0-3.2 1.6-3.2-1.28-5.12-.32-10.4 3.2-10.4a13.36 13.36 0 0 1 10-2.16 14.24 14.24 0 0 0-5.2 2.16c-3.52 0-6.08 5.28-4.8 10.4 0 0-.8 6.4 1.6 8Z"
+                            fill="#000064" opacity="0.15"></path>
+                        <path
+                            d="M30.24 41.2H2s0-5.6 7.52-7.04S16.4 31.276 16.4 30v-1.6a11.36 11.36 0 0 1-3.2-5.6c-2 0-3.2-2.4-3.2-4.8 0-.64 0-3.2 1.6-3.2-1.28-5.12-.32-10.4 3.2-10.4 8.32-5.6 20-1.2 16 10.4 1.6 0 1.6 2.56 1.6 3.2 0 2.4-1.2 4.8-3.2 4.8a11.28 11.28 0 0 1-3.2 5.6V30a3.04 3.04 0 0 0 2 2.72l.88.48 1.2.4"
+                            fill="none" stroke="#2e4369" stroke-linecap="round" stroke-linejoin="round"
+                            stroke-width="2"></path>
+                        <circle cx="8" cy="8" r="8" transform="translate(29.2 29.196)" fill="none" stroke="#2e4369"
+                            stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></circle>
+                        <path d="m42.88 42.876 7.12 7.12" fill="none" stroke="#2e4369" stroke-linecap="round"
+                            stroke-linejoin="round" stroke-width="2"></path>
+                    </g>
+                </svg>
+            </div>
+            <div>
+                <h3 class="font-size"> Alegi unul dintre frizerii favoriți</h3>
+            </div>
+            <div class="w-48 h-48 sm:mr-24"><svg xmlns="http://www.w3.org/2000/svg" width="49.998" height="49.998">
+                    <g transform="translate(-1 -1)">
+                        <circle cx="23.999" cy="23.999" r="23.999" transform="translate(2 2)" fill="#e1f4f3"></circle>
+                        <path d="M26 2a23.95 23.95 0 0 0-18.495 8.7 24 24 0 0 1 33.789 33.794A24 24 0 0 0 26 2Z"
+                            fill="#000064" opacity="0.15"></path>
+                        <path
+                            d="M35.931 18.473a1.6 1.6 0 0 0-2.263 0l-7.181 7.176a2.5 2.5 0 0 0-1.326.093l-4.56-3.378a1.6 1.6 0 1 0-1.9 2.572l4.514 3.345c0 .04-.012.08-.012.119a2.8 2.8 0 1 0 5.55-.487l7.181-7.176a1.6 1.6 0 0 0 0-2.263Z"
+                            fill="#000064" opacity="0.15"></path>
+                        <circle cx="1.6" cy="1.6" r="1.6" transform="translate(24.399 25.199)" fill="#6e7da9"></circle>
+                        <path
+                            d="M2 26h6.4m35.2 0H50M26 8.4V2m0 48v-6.4M5.215 38l3.464-2m34.64-20 3.464-2M16 8.679l-2-3.464m24 41.568-2-3.464M5.215 14l3.464 2m34.64 20 3.464 2M36 8.679l2-3.464M14 46.783l2-3.464"
+                            fill="none" stroke="#2e4369" stroke-linecap="round" stroke-linejoin="round"
+                            stroke-miterlimit="10" stroke-width="2"></path>
+                        <circle cx="1.6" cy="1.6" r="1.6" transform="translate(24.399 25.199)" fill="none"
+                            stroke="#2e4369" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10"
+                            stroke-width="2"></circle>
+                        <path d="m27.131 25.668 9.268-9.264m-18.35 4.045 6.689 5.37" fill="none" stroke="#2e4369"
+                            stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="2">
+                        </path>
+                        <circle cx="23.999" cy="23.999" r="23.999" transform="translate(2 2)" fill="none"
+                            stroke="#2e4369" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10"
+                            stroke-width="2"></circle>
+                    </g>
+                </svg></div>
+            <div>
+                <h3 class="font-size">Alegi data și ora programării</h3>
+            </div>
+            <div class="w-48 h-48 sm:mr-24"><svg xmlns="http://www.w3.org/2000/svg" width="49.999" height="49.999">
+                    <g transform="translate(.882 .882)">
+                        <path d="M24.118.118a24 24 0 1 1-24 24 24 24 0 0 1 24-24Z" fill="#5ade9c"></path>
+                        <path
+                            d="M27.318 44.917A24 24 0 0 1 8.823 5.622a24 24 0 1 0 33.789 33.791 23.905 23.905 0 0 1-15.294 5.504Z"
+                            fill="#000028" opacity="0.15"></path>
+                        <circle cx="24" cy="24" r="24" transform="rotate(-90 24.118 24)" fill="none" stroke="#2e4369"
+                            stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></circle>
+                        <path d="m15.318 24.129 7.191 7.189 12.809-12.8" fill="none" stroke="#2e4369"
+                            stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+                    </g>
+                </svg></div>
+            <div>
+                <h3 class="font-size">
+                    Confirmi programarea și ești gata
+                </h3>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+
+<div class="background-div" *ngIf="checkRole()">
+    <div class="edit-text">
+        <h2 class="text_color">Ești specialist beauty sau barber?</h2><br>
+        <h3 class="text_color">Câștigă timp ca să te poți concentra pe clienții tăi.
+            Administrează-ți salonul, clienții și programările
+            din cateva clickuri, făra bătăi de cap.
+        </h3>
+    </div>
+    <div class="div-button">
+        <button routerLink="register-hairdresser" class="button"><span class="text-color-font">Listează-ți
+                afacerea aici
+                ></span></button>
+    </div>
+
+</div>

@@ -1,30 +1,46 @@
 
-
-<div class="display-card" *ngIf = "clientOrHairdresser()">
-  <figure class="snip0045 green border-card">
-    <figcaption>
-      <h2>{{appointment.hairdresserName}} <span>{{appointment.hairdresserLastName}}</span></h2>
-      <p class="tel">Tel: {{appointment.hairdresserPhone}}</p> 
-      <p>Email: {{appointment.hairdresserEmail}}</p>
-      <p class="tel">Data: {{appointment.day}}</p>
-      <p>Ora: {{appointment.startTime}}</p>
-    </figcaption>
-    <img src="https://cdn.w600.comps.canstockphoto.com/pop-art-barber-hipster-man-vector-clipart-vector_csp92988452.jpg" alt="sample6"/> 
-    <div class="position"><button class="bottom-delete" (click)="deleteAppointment(appointment.id)" >Anulează programarea</button></div>
-    
-  </figure>
+<div class="display-card" *ngIf="clientOrHairdresser()">
+  <div class="flip-card">
+    <div class="flip-card-inner">
+      <div class="flip-card-front">
+        <h3>{{appointment.hairdresserName}} <span>{{appointment.hairdresserLastName}}</span></h3>
+        <img src="https://cdn4.vectorstock.com/i/1000x1000/53/48/trendy-barber-man-vector-35975348.jpg" alt="Avatar"
+          style="width:100px;height:100px;">
+      </div>
+      <div class="flip-card-back">
+        <h2>{{appointment.hairdresserName}} <span>{{appointment.hairdresserLastName}}</span></h2>
+        <p class="tel">Tel: {{appointment.hairdresserPhone}}</p>
+        <p>Email: {{appointment.hairdresserEmail}}</p>
+        <p class="tel">Data: {{formatDate(appointment.day)}}</p>
+        <p>Ora: {{appointment.startTime}}</p>
+        <div class="position" *ngIf="checkDay(appointment.day)"><button class="bottom-delete"
+          (click)="deleteAppointment(appointment.id)">Anulează programarea</button>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
 
+
+
 <div class="display-card" *ngIf="!clientOrHairdresser()">
-    <figure class="snip0045 green border-card">
-      <figcaption>
+  <div class="flip-card">
+    <div class="flip-card-inner">
+      <div class="flip-card-front">
+        <h3>{{appointmentForHairdresser.clientName}} <span>{{appointmentForHairdresser.clientLastName}}</span></h3>
+        <img src="https://cdn4.vectorstock.com/i/1000x1000/53/48/trendy-barber-man-vector-35975348.jpg" alt="Avatar"
+          style="width:100px;height:100px;">
+      </div>
+      <div class="flip-card-back">
         <h2>{{appointmentForHairdresser.clientName}} <span>{{appointmentForHairdresser.clientLastName}}</span></h2>
-        <p class="tel">Tel: {{appointmentForHairdresser.clientPhone}}</p> 
+        <p class="tel">Tel: {{appointmentForHairdresser.clientPhone}}</p>
         <p>Email: {{appointmentForHairdresser.clientEmail}}</p>
         <p class="tel">Data: {{appointmentForHairdresser.day}}</p>
         <p>Ora: {{appointmentForHairdresser.startTime}}</p>
-      </figcaption>
-      <img src="https://cdn.w600.comps.canstockphoto.com/pop-art-barber-hipster-man-vector-clipart-vector_csp92988452.jpg" alt="sample6"/> 
-      <div class="position"><button class="bottom-delete" (click)="deleteAppointment(appointmentForHairdresser.id)">Anulează programarea</button></div>
-    </figure>
+        <div class="position"><button class="bottom-delete"
+          (click)="deleteAppointment(appointmentForHairdresser.id)">Anulează programarea</button>
+        </div>
+      </div>
+    </div>
   </div>
+</div>

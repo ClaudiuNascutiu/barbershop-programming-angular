@@ -77,6 +77,7 @@ h1 {
 }
 
 .div-button {
+    /* margin-top: 7%; */
     padding-left: 60px;
     padding-bottom: 40px;
 }
@@ -96,7 +97,60 @@ h1 {
     justify-content: flex-end;
 } */
 
-.programming{
+.programming {
     margin-top: 5%;
-    background-color: antiquewhite;
+    /* background-color: antiquewhite; */
+    background-image: url("img/Artboard 1.jpg");
+    height: 280px;
 }
+
+.display-appointment{
+    display: flex;
+    justify-content: flex-start;
+    margin: 2%;
+
+}
+
+.space-card {
+    margin: 1%;
+}
+
+.display-center {
+    margin-top: 1.5%;
+    margin-left: 7%;
+    display: flex;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.all-programming:hover {
+    color: blue;
+}
+
+.title {
+    margin-top: 3%;
+    margin-left: 2%;
+    margin-bottom: 5%;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.icon-search {
+    margin-left: 4%;
+}
+
+.font-size{
+    margin-top: -1px;
+    margin-left: 10%;
+    font-size: 25px;
+   
+}
+.display{
+    margin-top: -30px;
+    display: flex;
+    justify-content:center;
+}
+section{
+    background-color: whitesmoke;
+}
+
+

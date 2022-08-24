@@ -5,7 +5,7 @@ import { AppointmentListComponent } from './appointment/appointment-list/appoint
 import { ContactComponent } from './contact/contact.component';
 import { AddHairdresserComponent } from './hairdresser/add-hairdresser/add-hairdresser.component';
 import { HairdresserListComponent } from './hairdresser/hairdresser-list/hairdresser-list.component';
-import { HomeComponent } from './home/home.component';
+import { HomeComponent } from './home/home component/home.component';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
 
