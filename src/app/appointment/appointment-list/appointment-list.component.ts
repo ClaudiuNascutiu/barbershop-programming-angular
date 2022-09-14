@@ -15,7 +15,7 @@ export class AppointmentListComponent implements OnInit {
   appointmentBefore: AppointmentDTO[] = [];
   appointmentAfter: AppointmentDTO[] = [];
   appointmentForHairdresser: AppointmentDTOForHairdresser[] = [];
-  
+
 
   constructor(private service: AppointmentService, private userService: UserService,
     private router: ActivatedRoute) {
@@ -24,38 +24,53 @@ export class AppointmentListComponent implements OnInit {
 
   ngOnInit(): void {
 
-    if(this.userService.getUser()?.role == "CLIENT"){
-    this.service.getAllAppointmentsByClientIdBefore().subscribe(responseAppointment =>{
-      this.appointmentBefore = responseAppointment;
-    })
-    this.service.getAllAppointmentsByClientIdAfter().subscribe(responseAppointment =>{
-      this.appointmentAfter = responseAppointment;
-  })}
-    else if(this.userService.getUser()?.role == "HAIRDRESSER"){
-     this.service.getAllAppointmentsByHairdresserId().subscribe(responseForHairdresser => {
-      this.appointmentForHairdresser = responseForHairdresser;
-    })}
+    if (this.userService.getUser()?.role == "CLIENT") {
+      this.service.getAllAppointmentsByClientIdBefore().subscribe(responseAppointment => {
+        console.log(responseAppointment);
+        this.appointmentBefore = responseAppointment;
+      })
+      this.service.getAllAppointmentsByClientIdAfter().subscribe(responseAppointment => {
+        this.appointmentAfter = responseAppointment;
+      })
+    }
+    else if (this.userService.getUser()?.role == "HAIRDRESSER") {
+      this.service.getAllAppointmentsByHairdresserId().subscribe(responseForHairdresser => {
+        this.appointmentForHairdresser = responseForHairdresser;
+      })
+    }
   }
 
- deleteAppointment(id: number){
-  // this.appointment = this.appointment.filter(a => a !== appointments)
-  this.service.deleteAppointmentById(id).subscribe()
-}
+  deleteAppointment(id: number) {
+    // this.appointment = this.appointment.filter(a => a !== appointments)
+    this.service.deleteAppointmentById(id).subscribe()
+  }
 
-formatDate(day: Date): string {
-  // var days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
-  var d = new Date(day);
-  var dayName = d.toString().split(' ')[0];
-  return dayName;
-}
+  formatDate(day: Date): string {
+    // var days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+    var d = new Date(day);
+    var dayName = d.toString().split(' ')[0];
+    return dayName;
+  }
 
-countAppointmentBefore(): number{
-  return this.appointmentBefore.length;
-}
+  countAppointmentBefore(): number {
+    return this.appointmentBefore.length;
+  }
 
-countAppointmentAfter(): number{
-  return this.appointmentAfter.length;
-}
+  countAppointmentAfter(): number {
+    return this.appointmentAfter.length;
+  }
+
+  countAppointmentForHairdresser(): number {
+    return this.appointmentForHairdresser.length;
+  }
+
+  checkRole() {
+    if (this.userService.getUser()?.role == "HAIRDRESSER") {
+      return false;
+    } else {
+      return true;
+    }
+  }
 
 
 }

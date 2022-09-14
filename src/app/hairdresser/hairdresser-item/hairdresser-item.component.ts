@@ -18,7 +18,7 @@ export class HairdresserItemComponent implements OnInit {
   }
 
   constructor() {
-   }
+  }
 
   ngOnInit(): void {
   }

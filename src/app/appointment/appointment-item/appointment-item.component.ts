@@ -72,17 +72,17 @@ export class AppointmentItemComponent implements OnInit {
     ];
     const d = new Date(date);
     const monthName = monthNames[d.getMonth()]
-    
+
     const day = date.getDate() < 10 ? `0${date.getDate()}` : date.getDate() + '';
 
     return dayName + `  ${day} ` + monthName;
   }
 
-  checkDay(date: any){
+  checkDay(date: any) {
     date = new Date(date);
-    if(date < new Date()){
+    if (date < new Date()) {
       return false;
-    }else{
+    } else {
       return true;
     }
   }

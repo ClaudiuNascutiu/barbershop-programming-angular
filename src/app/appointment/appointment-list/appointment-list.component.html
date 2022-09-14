@@ -1,34 +1,31 @@
-<h3>Programări:</h3>
-<div class="float-container">
-<div class="float-child">
-    <h4 class="last-programming">
-        Următoarele programări ({{countAppointmentAfter()}})
-    </h4>
-    <div class="container">
-        <div class=" list-container">
-            <app-appointment-item *ngFor="let a of appointmentAfter" [appointment]="a"></app-appointment-item>
+<div class="background-image">
+
+    <h3>Programări:</h3>
+    <div class="float-container">
+        <div class="float-child">
+            <h4 class="last-programming">
+                Următoarele programări ({{countAppointmentAfter()}})
+            </h4>
+            <div class="container">
+                <div class=" list-container">
+                    <app-appointment-item *ngFor="let a of appointmentAfter" [appointment]="a"></app-appointment-item>
+                    <app-appointment-item *ngFor="let ah of appointmentForHairdresser" [appointmentForHairdresser]="ah">
+                    </app-appointment-item>
+                </div>
+            </div>
         </div>
-    </div>
-</div>
 
-<div class="float-child">
-    <h4 class="last-programming">
-        În trecut ({{countAppointmentBefore()}})
-    </h4>
-    <div class="container">
-        <div class=" list-container">
-            <app-appointment-item *ngFor="let a of appointmentBefore" [appointment]="a"></app-appointment-item>
+        <div class="float-child" *ngIf="checkRole()">
+            <h4 class="last-programming">
+                În trecut ({{countAppointmentBefore()}})
+            </h4>
+            <div class="container">
+                <div class=" list-container">
+                    <app-appointment-item *ngFor="let a of appointmentBefore" [appointment]="a"></app-appointment-item>
+                </div>
+            </div>
         </div>
-    </div>
-</div>
 
-</div>
-
-
-<div class="container">
-    <div class=" list-container">
-        <app-appointment-item *ngFor="let ah of appointmentForHairdresser" [appointmentForHairdresser]="ah">
-        </app-appointment-item>
     </div>
 
 </div>

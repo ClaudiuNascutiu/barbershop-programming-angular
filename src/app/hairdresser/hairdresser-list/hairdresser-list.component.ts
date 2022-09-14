@@ -21,7 +21,7 @@ export class HairdresserListComponent implements OnInit {
       })
   }
 
-  
+
 
 }
 

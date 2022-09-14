@@ -1,4 +1,3 @@
-
 <div class="display-card" *ngIf="clientOrHairdresser()">
   <div class="flip-card">
     <div class="flip-card-inner">
@@ -14,7 +13,7 @@
         <p class="tel">Data: {{formatDate(appointment.day)}}</p>
         <p>Ora: {{appointment.startTime}}</p>
         <div class="position" *ngIf="checkDay(appointment.day)"><button class="bottom-delete"
-          (click)="deleteAppointment(appointment.id)">Anulează programarea</button>
+            (click)="deleteAppointment(appointment.id)">Anulează programarea</button>
         </div>
       </div>
     </div>
@@ -38,7 +37,7 @@
         <p class="tel">Data: {{appointmentForHairdresser.day}}</p>
         <p>Ora: {{appointmentForHairdresser.startTime}}</p>
         <div class="position"><button class="bottom-delete"
-          (click)="deleteAppointment(appointmentForHairdresser.id)">Anulează programarea</button>
+            (click)="deleteAppointment(appointmentForHairdresser.id)">Anulează programarea</button>
         </div>
       </div>
     </div>

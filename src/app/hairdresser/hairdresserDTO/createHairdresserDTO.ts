@@ -1,15 +1,19 @@
+
+
 export class HairdresserCreateDTO {
     firstname: string;
     lastname: string;
     phoneNumber: string;
     email: string;
     password: string;
+    
 
     constructor(firstname: string,
         lastname: string,
         phoneNumber: string,
         email: string,
-        password: string){
+        password: string,
+        ){
         
             this.firstname = firstname;
             this.lastname = lastname;

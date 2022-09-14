@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { AppointmentService } from 'src/app/service/appointment-service/appointment.service';
+import { DomSanitizer } from '@angular/platform-browser';
 import { HairdresserService } from 'src/app/service/hairdresser-service/hairdresser.service';
+import { HairdresserCreateDTO } from '../hairdresserDTO/createHairdresserDTO';
+
 
 
 @Component({
@@ -10,33 +12,33 @@ import { HairdresserService } from 'src/app/service/hairdresser-service/hairdres
 })
 export class AddHairdresserComponent implements OnInit {
 
-  firstname = ""
 
-  lastname = ""
 
-  phoneNumber = ""
+  createHairdresserDTO: HairdresserCreateDTO = {
+    firstname: "",
+    lastname: "",
+    phoneNumber: "",
+    email: "",
+    password: "",
 
-  email = ""
+  };
 
-  password = ""
 
-  constructor(private service: HairdresserService) { }
+  constructor(private service: HairdresserService,
+    private sanitizer: DomSanitizer) { }
 
   ngOnInit(): void {
   }
 
-  onClick(){
-    const createHairdresserDTO = {
-      "firstname": this.firstname,
-      "lastname": this.lastname,
-      "phoneNumber": this.phoneNumber,
-      "email": this.email,
-      "password": this.password
-    };
-    this.service.createHairdresser(createHairdresserDTO).subscribe(response => {
+  onClick() {
+
+    this.service.createHairdresser(this.createHairdresserDTO).subscribe(response => {
       console.log(response);
     })
-    
+
   }
+
+
+
 
 }

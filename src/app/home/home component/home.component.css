@@ -77,7 +77,7 @@ h1 {
 }
 
 .div-button {
-    /* margin-top: 7%; */
+    margin-top: 6%;
     padding-left: 60px;
     padding-bottom: 40px;
 }
@@ -153,4 +153,8 @@ section{
     background-color: whitesmoke;
 }
 
+.button-register{
+    padding-left: 60px;
+    padding-bottom: 40px;
+}
 

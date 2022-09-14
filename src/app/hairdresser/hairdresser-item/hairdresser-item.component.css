@@ -19,7 +19,7 @@
     flex-direction: column;
     align-items: center;
     margin-top: 15%;
-    background-color: antiquewhite;
+    background-color: rgba(252, 251, 251, 0.6);
     margin-left: 3%;
     border: 5px whitesmoke solid;
     /* border-radius: 10%; */
@@ -67,15 +67,16 @@ p {
     border-bottom-right-radius: 5px;
     border-bottom-left-radius: 5px;
     padding: 0 20px;
+    color: black;
 }
 
 .border {
     border: double;
     padding: 0 20px;
     border-color: yellowgreen;
+
 }
 
-.smaller-carousel {
-    width: 15px;
-    height: 15px;
+.text-color {
+    color: black;
 }

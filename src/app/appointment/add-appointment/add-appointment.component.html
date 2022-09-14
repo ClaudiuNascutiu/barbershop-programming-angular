@@ -130,12 +130,12 @@
                             name="startTime">{{a}}</button>
                     </div>
                     <div class="col-md-6 closed-sunday" *ngIf="isSunday(day)">
-                        <span  name="startTime">Închis</span>
+                        <span name="startTime">Închis</span>
                     </div>
-                    <div class="col-md-6 closed" *ngIf="availableSlotsEmpty()">
-                        <span  name="startTime">{{hairdresser.lastname}} 
+                    <!-- <div class="col-md-6 closed" *ngIf="availableSlotsEmpty()">
+                        <span  name="startTime">{{hairdresser.lastname}}
                             nu are timp disponibil azi</span>
-                    </div>
+                    </div> -->
                 </div>
 
                 <div class="modal-footer ">

@@ -34,8 +34,9 @@ export class HomeComponent implements OnInit {
 
   checkLogin(){
     if(this.userService.getUser() == null || this.userService.getUser() == undefined){
-      alert("Trebuie sa va logati!");
-      this.routerLink.navigate([""]);
+      alert("Trebuie sa fiți logat!");
+      window.location.reload();
+      // this.routerLink.navigate([""]);
     }
   }
 

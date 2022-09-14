@@ -26,12 +26,12 @@ export class AddAppointmentComponent implements OnInit {
 
   startTime = {} as Time;
   availableSlots: Time[] = [];
-  
+
   hairdresser = {} as HairdresserDTO;
 
   constructor(private service: AppointmentService, private userService: UserService,
     private router: ActivatedRoute, private routerLink: Router,
-    ) {
+  ) {
 
   }
 
@@ -76,19 +76,19 @@ export class AddAppointmentComponent implements OnInit {
     this.startTime = time;
   }
 
-  isSunday(day: any){ 
+  isSunday(day: any) {
     const date = new Date(day)
-    if(date.getDay() == 0){
+    if (date.getDay() == 0) {
       return true;
-    }else{
+    } else {
       return false;
     }
   }
 
-  availableSlotsEmpty(){
-    if(this.availableSlots.length == 0) {
+  availableSlotsEmpty() {
+    if (this.availableSlots.length == 0) {
       return true;
-    }else{
+    } else {
       return false;
     }
   }
