@@ -52,7 +52,7 @@ export class AddAppointmentComponent implements OnInit {
       "hairdresserId": this.hairdresserId,
       "clientId": this.userService.getUser()?.id
     };
-    this.service.createAppointment(createAppointmentDTO).subscribe(response =>
+    this.service.createAppointment(createAppointmentDTO, this.userService.getUser()?.phoneNumber).subscribe(response =>
       console.log(response));
     this.routerLink.navigate([""])
   }
@@ -66,7 +66,7 @@ export class AddAppointmentComponent implements OnInit {
       console.log(this.day)
       console.log(responseAvailableSlot);
       this.availableSlots = responseAvailableSlot;
-
+      
     })
 
   }

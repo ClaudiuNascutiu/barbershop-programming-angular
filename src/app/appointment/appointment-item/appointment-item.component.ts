@@ -57,7 +57,7 @@ export class AppointmentItemComponent implements OnInit {
 
   deleteAppointment(id: number) {
     this.appointmentList.deleteAppointment(id);
-    if (confirm("Doriti sa stergeti programarea?")) {
+    if (confirm("Doriti sa anulați programarea?")) {
       window.location.reload();
     }
   }

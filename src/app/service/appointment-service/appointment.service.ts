@@ -2,6 +2,7 @@ import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { AppointmentCreateDTO } from 'src/app/appointment/appointmentDTO/createAppointmentDTO';
+import { UserDTO } from 'src/app/user/UserDTO/UserDTO';
 import { UserService } from '../user-service/user.service';
 
 @Injectable({
@@ -19,8 +20,13 @@ export class AppointmentService {
     this.httpClient = client;
   }
 
-  createAppointment(createAppointmentDTO: AppointmentCreateDTO): Observable<any> {
-    return this.httpClient.post("api/appointment", createAppointmentDTO);
+  createAppointment(createAppointmentDTO: AppointmentCreateDTO, phoneNumber: string): Observable<any> {
+    let params = new HttpParams({
+      fromObject: {
+        phoneNumber: phoneNumber
+      }
+    });
+    return this.httpClient.post("api/appointment",createAppointmentDTO, {params:params});
   }
 
   deleteAppointmentById(id: number) {
