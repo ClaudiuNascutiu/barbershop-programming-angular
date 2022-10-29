@@ -1,72 +1,209 @@
-html {
-  height: 100%;
-}
 
-body {
-  background-color: #212121;
-  display: flex;
-  justify-content: flex-start;
-  align-items: flex-start;
-  flex-flow: wrap;
-  margin: 0;
-  height: 100%;
-}
-
-.border-card{
-    border: double;
-}
-
-.tel{
-    display: inline;
-}
-
-.bottom-delete{
-  background-color: red;
-  border-radius: 17px;
-}
-
-.flip-card {
-  background-color: transparent;
-  width: 300px;
-  height: 160px;
-  perspective: 1000px;
-  margin: 5%;
-}
-
-.flip-card-inner {
+.container {
+  width: 200px;
   position: relative;
-  width: 100%;
-  height: 100%;
-  text-align: center;
-  transition: transform 0.6s;
-  transform-style: preserve-3d;
-  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-}
-
-.flip-card:hover .flip-card-inner {
-  transform: rotateY(180deg);
-}
-
-.flip-card-front, .flip-card-back {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  -webkit-backface-visibility: hidden;
-  backface-visibility: hidden;
-}
-
-.flip-card-front {
-  background-color: whitesmoke;
-  color: black;
-}
-
-.flip-card-back {
-  background-color: turquoise;
-  color: white;
-  transform: rotateY(180deg);
-}
-
-.display-card{
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
+  flex-wrap: wrap;
+
+}
+
+.container .card {
+  position: relative;
+}
+
+.container .card .face {
+  width: 200px;
+  height: 150px;
+  transition: .4s;
+
+}
+
+.container .card .face.face1 {
+  position: relative;
+  background: #333;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  z-index: 1;
+  transform: translateY(100px);
+}
+
+.container .card:hover .face.face1 {
+  transform: translateY(0);
+  box-shadow:
+    inset 0 0 40px whitesmoke,
+    inset 20px 0 50px #f0f,
+    inset -20px 0 50px #0ff,
+    inset 20px 0 200px #f0f,
+    inset -20px 0 100px #0ff,
+    0 0 30px #fff,
+    -10px 0 30px #f0f,
+    10px 0 30px #0ff;
+
+}
+
+
+.container .card .face.face1 .content {
+  opacity: .2;
+  transition: 0.5s;
+  text-align: center;
+}
+
+.container .card:hover .face.face1 .content {
+  opacity: 1;
+
+}
+
+.container .card .face.face1 .content i {
+  font-size: 2em;
+  color: white;
+  display: inline-block;
+
+}
+
+.container .card .face.face1 .content h3 {
+  font-size: 1em;
+  color: rgb(240, 237, 237);
+  text-align: center;
+
+
+}
+
+.container .card .face.face1 .content a {
+  transition: .5s;
+}
+
+.container .card .face.face2 {
+  position: relative;
+  background: whitesmoke;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  box-sizing: border-box;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, .8);
+  transform: translateY(-50px);
+}
+
+.container .card:hover .face.face2 {
+  transform: translateY(0);
+
+
+}
+
+.container .card .face.face2 .content p,a {
+  font-size: 10pt;
+  margin: 0;
+  padding: 0;
+  color: #333;
+}
+
+.container .card .face.face2 .content a{
+  font-size: 12px;
+  text-decoration: none;
+  color: rgb(213, 17, 17);
+  padding: 10px;
+  margin: 10px 0 0;
+  display: inline-block;
+}
+
+/* .container .card .face.face2 .content a:hover {
+  background: #333;
+  color: whitesmoke;
+} */
+
+.container2 {
+  width: 200px;
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+
+}
+
+.container2 .card2 {
+  position: relative;
+}
+
+.container2 .card2 .face2 {
+  width: 150px;
+  height: 100px;
+  transition: .4s;
+
+}
+
+.container2 .card2 .face2.face12 {
+  position: relative;
+  background: #333;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  z-index: 1;
+  transform: translateY(50px);
+}
+
+.container2 .card2:hover .face2.face12 {
+  transform: translateY(0);
+  box-shadow:
+    inset 0 0 40px whitesmoke,
+    inset 20px 0 50px #f0f,
+    inset -20px 0 50px #0ff,
+    inset 20px 0 200px #f0f,
+    inset -20px 0 100px #0ff,
+    0 0 30px #fff,
+    -10px 0 30px #f0f,
+    10px 0 30px #0ff;
+
+}
+
+
+.container2 .card2 .face2.face12 .content2 {
+  opacity: .2;
+  transition: 0.5s;
+  text-align: center;
+}
+
+.container2 .card2:hover .face2.face12 .content2 {
+  opacity: 1;
+
+}
+
+.container2 .card2 .face2.face12 .content2 h3 {
+  font-size: 1em;
+  color: rgb(240, 237, 237);
+  text-align: center;
+
+
+}
+
+.container2 .card2 .face2.face12 .content2 a {
+  transition: .5s;
+}
+
+.container2 .card2 .face2.face22 {
+  position: relative;
+  background: whitesmoke;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  box-sizing: border-box;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, .8);
+  transform: translateY(-50px);
+}
+
+.container2 .card2:hover .face2.face22 {
+  transform: translateY(0);
+
+
+}
+
+.container2 .card2 .face2.face22 .content2 p,a {
+  font-size: 12px;
+  margin: 0;
+  padding: 0;
+  color: #333;
 }
